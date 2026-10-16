@@ -19,7 +19,7 @@ Static site on GitHub Pages (wooshbiz.com, `CNAME`). Pushing `main` publishes it
 | Template | `layout` value | What it looks like | First used |
 |---|---|---|---|
 | Rich Article (standard) | `standard` | Plum hero with blurred cover wash, share rail, sticky contents sidebar, drop cap | most posts |
-| Editorial Magazine | `editorial` | Full-photo hero, one centred column, italic lead, big stat, numbered idea cards on a tinted full-width band, pull quote, "No…" points in a row, plum closing band with orange button | post 49, `/return-to-office-engagement-ideas/` |
+| Editorial Magazine | `editorial` | Plum hero with the cover photo beside the headline (shown at its real size, never stretched), one centred column, italic lead, big stat, numbered idea cards on a tinted full-width band, pull quote, "No…" points in a row, plum closing band with orange button | post 49, `/return-to-office-engagement-ideas/` |
 
 Editorial is `assets/blog-editorial.css`; its header comment lists the body blocks
 (`ed-lead`, `ed-stat`, `ed-band`, `ed-cards`, `ed-quote`, `ed-nos`, `ed-cta`, `ed-btn`).
@@ -30,7 +30,9 @@ The flow:
 
 1. The brief is a public Google Doc: fetch `…/document/d/<id>/export?format=txt`. Images come as
    a local folder of 626x440 Canva PNGs. Check the images' baked-in titles match the text.
-2. Copy images to `images/blog/<slug>/`; `cover.png` = 626x298 crop (y 142–440) of the hero.
+2. Copy images to `images/blog/<slug>/`; `cover.png` = the hero image with only the Canva
+   title band cut off (find where the photo starts; keep every head in frame). Never stretch a
+   626px image across a full-width area: it blurs.
 3. Write the row to `wooshbiz_blogs` (Supabase project `ytthcgdsbfagvwcopoaj`) through the REST
    API with the anon key from `blog.html`, as `admin.html` does. The Supabase MCP connector
    cannot see this project. Fields: title, slug, category, author (`Andrea Costabir`),

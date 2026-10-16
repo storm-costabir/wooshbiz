@@ -632,6 +632,21 @@ function buildPage(template, post, slug, allPosts) {
                 `Known: standard, ${Object.keys(LAYOUT_SHEETS).join(', ')}.`);
         }
         out = sub(out, '<body>', `<body class="layout-${layout}">`, 'body tag');
+
+        /* Editorial shows the cover as a photo beside the headline, not as
+           the blurred full-width wash. The Canva covers are 626px wide, so
+           stretched across a desktop hero they blur and lose the top and
+           bottom of the frame (heads included); as an <img> capped at its
+           own width they stay sharp and whole. */
+        if (layout === 'editorial' && cover) {
+            const size = imageSize(cover);
+            const dims = size ? ` width="${size.w}" height="${size.h}"` : '';
+            out = sub(out,
+                /(<header class="article-hero" id="articleHero"[^>]*>[\s\S]*?)(\n\s*<\/header>)/,
+                `$1\n            <img class="ed-hero-photo" src="${escapeHtml(cover)}" alt="${escapeHtml(title)}"${dims} fetchpriority="high">$2`,
+                'article hero close'
+            );
+        }
         out = sub(out, '</head>', `    <link rel="stylesheet" href="${sheet}">\n</head>`, 'end of head');
     }
 
