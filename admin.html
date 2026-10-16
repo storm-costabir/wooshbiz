@@ -581,15 +581,17 @@
               <option value="Case Study">Case Study</option>
             </select>
           </div>
-          <!-- Layout selector — Rich Article is the only layout the site has. -->
+          <!-- Layout selector. Editorial posts are built from code (their body
+               uses blocks this editor would strip), so it is not offered here. -->
           <div class="field">
             <label for="layoutInput">Page Layout</label>
             <select id="layoutInput">
               <option value="standard">Rich Article — Standard Blog</option>
             </select>
             <p style="font-size:12px; color:#888; margin-top:6px;">
-              Every post uses <b>Rich Article</b>, the site-wide blog template (<code>blog-post.html</code>) —
+              Posts written here use <b>Rich Article</b>, the site-wide blog template (<code>blog-post.html</code>) —
               plum hero, cover card, sticky contents, share rail, author card and 3 “More From Us” suggestions.
+              <b>Editorial Magazine</b> posts are designed and published by the developer, not in this editor.
             </p>
           </div>
           <div class="field">
@@ -836,7 +838,7 @@
             <td>${formatDate(p.created_at)}</td>
             <td><span class="badge ${pub ? 'pub' : 'draft'}">${pub ? 'Published' : 'Draft'}</span></td>
             <td>
-              <span class="badge layout-standard">Rich Article</span>
+              <span class="badge layout-standard">${p.layout === 'editorial' ? 'Editorial Magazine' : 'Rich Article'}</span>
               ${p.redirect_url ? `<span class="badge layout-redirected" title="Sends visitors to ${escapeHtml(p.redirect_url)} instead of the template. Re-save this post to clear it.">Redirected</span>` : ''}
             </td>
             <td>
@@ -954,6 +956,14 @@
         const rows = await res.json();
         if (!rows.length) { showMsg('Post not found.', 'err'); return; }
         const p = rows[0];
+
+        /* An Editorial post's body is built from styled blocks (stat, numbered
+           cards, pull quote, closing band) that this editor would strip, and
+           saving here would also reset it to Rich Article. Don't open it. */
+        if (p.layout === 'editorial') {
+          showMsg('This post uses the Editorial Magazine design and can’t be edited here without breaking it. Ask the developer to make changes.', 'err');
+          return;
+        }
 
         $('postId').value = p.id;
         $('titleInput').value = p.title || '';

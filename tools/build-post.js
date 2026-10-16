@@ -618,8 +618,30 @@ function buildPage(template, post, slug, allPosts) {
         'loadPost() call site'
     );
 
+    /* --- layout ---
+       'standard' is blog-post.html as it stands. Any other layout is a
+       stylesheet layered over it plus a body class, so the nav, footer,
+       scripts and every substitution above stay shared and sync-partials
+       keeps covering them. An unknown value is a typo in the CMS row;
+       building it as standard would quietly ship the wrong design. */
+    const layout = post.layout || 'standard';
+    if (layout !== 'standard') {
+        const sheet = LAYOUT_SHEETS[layout];
+        if (!sheet) {
+            throw new Error(`Post ${post.id} has layout "${layout}", which build-post.js does not know. ` +
+                `Known: standard, ${Object.keys(LAYOUT_SHEETS).join(', ')}.`);
+        }
+        out = sub(out, '<body>', `<body class="layout-${layout}">`, 'body tag');
+        out = sub(out, '</head>', `    <link rel="stylesheet" href="${sheet}">\n</head>`, 'end of head');
+    }
+
     return out;
 }
+
+/* Post layouts beyond the standard Rich Article, by wooshbiz_blogs.layout. */
+const LAYOUT_SHEETS = {
+    editorial: '/assets/blog-editorial.css',
+};
 
 /* ---------- io ---------- */
 
