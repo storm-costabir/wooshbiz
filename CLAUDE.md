@@ -19,11 +19,12 @@ Static site on GitHub Pages (wooshbiz.com, `CNAME`). Pushing `main` publishes it
 | Template | `layout` value | What it looks like | First used |
 |---|---|---|---|
 | Rich Article (standard) | `standard` | Plum hero with blurred cover wash, share rail, sticky contents sidebar, drop cap | most posts |
-| Editorial Magazine | `editorial` | Plum hero with the cover photo beside the headline (shown at its real size, never stretched), one centred column, italic lead, big stat, numbered idea cards on a tinted full-width band, pull quote, "No…" points in a row, plum closing band with orange button | post 49, `/return-to-office-engagement-ideas/` |
+| Editorial Magazine | `editorial` | Plum hero with the cover photo beside the headline (shown at its real size, never stretched), one centred column, italic lead, big stat, numbered idea cards on a tinted full-width band, pull quote, "No…" points in a row, plum closing band with orange button | no post at present (tried on post 49, which went back to standard) |
 
 Editorial is `assets/blog-editorial.css`; its header comment lists the body blocks
 (`ed-lead`, `ed-stat`, `ed-band`, `ed-cards`, `ed-quote`, `ed-nos`, `ed-cta`, `ed-btn`).
-Post 49's body in `wooshbiz_blogs` is the worked example. A new template = a new sheet
+Worked example: the `#artBody` of `git show 60d313f:return-to-office-engagement-ideas/index.html`
+(post 49 while it was Editorial). A new template = a new sheet
 plus an entry in `LAYOUT_SHEETS` in `tools/build-post.js`, and a row in the table above.
 
 The flow:
