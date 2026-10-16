@@ -330,8 +330,17 @@ function enhanceBodyImages(body) {
 
 /* ---------- page assembly ---------- */
 
+/* A post's headline is written for the reader on the page ("Back in the
+   Office, but Where's The Energy?? 5 Ways…") and can run past the ~60 chars
+   Google prints before cutting a result title off. wooshbiz_blogs has no
+   column for a separate title tag, so the brief's title tag lives here,
+   keyed by post id. It replaces only <title>: the H1, the og:title a share
+   card shows and the Article headline keep the headline. */
+const SEO_TITLES = JSON.parse(fs.readFileSync(path.join(__dirname, 'seo-titles.json'), 'utf8'));
+
 function buildPage(template, post, slug, allPosts) {
     const title = post.title || 'Untitled';
+    const titleTag = SEO_TITLES[post.id] || `${title} | Woosh Biz`;
     const category = post.category || 'General';
     const author = post.author || 'Team Woosh Biz';
     const bodyRaw = post.body || '';
@@ -371,7 +380,7 @@ function buildPage(template, post, slug, allPosts) {
     /* --- head --- */
     out = sub(out,
         '<title>Blog | Woosh Biz</title>',
-        `<title>${escapeHtml(title)} | Woosh Biz</title>\n` +
+        `<title>${escapeHtml(titleTag)}</title>\n` +
         `    <link rel="canonical" href="${canonical}">`,
         'title'
     );
