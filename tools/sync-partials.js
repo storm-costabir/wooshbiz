@@ -71,7 +71,8 @@ function indent(block, pad) {
    subdirectory and relative hrefs would resolve inside it. */
 const LANDING_PAGES = [
     'epic-1-day-team-building/index.html',
-    'thrilling-2-day-team-building-retreat/index.html'
+    'thrilling-2-day-team-building-retreat/index.html',
+    'resorts-recommended-pinewood-resort/index.html'
 ];
 
 const files = [

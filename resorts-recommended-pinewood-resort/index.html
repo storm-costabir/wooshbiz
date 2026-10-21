@@ -1,25 +1,376 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-2879Y98N4Y"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-2879Y98N4Y');
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!--
-      Legacy Wix URL. Kept so old search results and inbound links resolve
-      instead of 404ing. Canonical + meta refresh hand the ranking to resorts.html.
-      Deliberately NOT noindex: this stub exists to pass ranking on, and
-      noindex would conflict with the canonical. Do not delete.
-    -->
-    <title>Resorts Recommended - Woosh Biz Team Building Venues</title>
-    <link rel="canonical" href="https://wooshbiz.com/resorts.html">
-    <meta http-equiv="refresh" content="0; url=/resorts.html">
+    <title>Pinewood Resort, Karjat — Team Building &amp; Corporate Offsites | Woosh Biz</title>
+    <meta name="description" content="Pinewood Resort in Karjat: open lawns, conference facilities, multiple pools and an adventure zone for up to 150 pax. Plan your team building offsite there with Woosh Biz.">
+    <link rel="canonical" href="https://wooshbiz.com/resorts-recommended-pinewood-resort/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Woosh Biz">
+    <meta property="og:title" content="Pinewood Resort, Karjat — Team Building &amp; Corporate Offsites | Woosh Biz">
+    <meta property="og:description" content="Open lawns, conference facilities, multiple pools and an adventure zone for up to 150 pax — a sustainably run resort we use for team building in Karjat.">
+    <meta property="og:url" content="https://wooshbiz.com/resorts-recommended-pinewood-resort/">
+    <meta property="og:image" content="https://wooshbiz.com/images/resorts/pinewood/og.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="A group arriving at Pinewood Resort, greeted with a namaste beside the resort's sign">
+    <meta name="twitter:card" content="summary_large_image">
     <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png">
-    <script>window.location.replace('/resorts.html' + window.location.hash);</script>
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon-180.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="/images/favicon-512.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600;1,700&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/woosh-tokens.css">
+    <link rel="stylesheet" href="/assets/woosh-base.css">
+    <link rel="stylesheet" href="/assets/woosh-chrome.css">
+    <link rel="stylesheet" href="/assets/woosh-components.css">
+    <link rel="stylesheet" href="/assets/woosh-3d.css">
+    <script defer src="/assets/woosh-3d.js"></script>
+    <script defer src="/assets/woosh-ui.js"></script>
+
+    <!--
+      This URL is a legacy Wix address that used to redirect to resorts.html.
+      It is the Pinewood venue page again, linked from Pinewood's card there.
+      The page has two exits on purpose: enquire with us, or go to the
+      resort's own website. Both are offered side by side in section 03.
+    -->
     <style>
-        body { font-family: system-ui, sans-serif; display: flex; min-height: 100vh; align-items: center; justify-content: center; margin: 0; text-align: center; color: #1a1a1a; }
-        a { color: #871e6c; font-weight: 700; }
+        /* The photos are 4:3. The stock .deck-art crop is 4:5, which would cut
+           the resort's sign out of the entrance shot, so the frame follows the
+           photograph (same move as office.html). */
+        .pw-deck .deck-art img { aspect-ratio: 4 / 3; }
+
+        /* Six photos: three across reads as two even rows, where the shared
+           four-column grid would leave two orphans. */
+        @media (min-width: 969px) { .pw-gallery { grid-template-columns: repeat(3, 1fr); } }
+        .pw-cell { display: flex; flex-direction: column; gap: 9px; margin: 0; }
+        .pw-cell .gallery-item { flex: 1 1 auto; }
+        .pw-cap { font-size: .82rem; font-weight: 500; color: var(--dim); text-align: center; padding: 0 4px; }
+
+        .pw-copy p + p { margin-top: 14px; }
+        /* .panel p would otherwise shrink the figure to body size. */
+        .panel .pw-stat { font-family: var(--disp); font-size: 2.6rem; font-weight: 800; line-height: 1; color: var(--gold); margin-bottom: 10px; }
+        /* Three short facts: one row of three, not two plus an orphan. */
+        @media (min-width: 969px) { .pw-three { grid-template-columns: repeat(3, 1fr); } }
+        .pw-choice .act { margin-top: 18px; }
+        .pw-choice .act + .act { margin-left: 8px; }
     </style>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebPage",
+          "url": "https://wooshbiz.com/resorts-recommended-pinewood-resort/",
+          "name": "Pinewood Resort, Karjat — Team Building & Corporate Offsites",
+          "description": "Pinewood Resort in Karjat: open lawns, conference facilities, multiple pools and an adventure zone for up to 150 pax. Plan your team building offsite there with Woosh Biz.",
+          "primaryImageOfPage": "https://wooshbiz.com/images/resorts/pinewood/entrance-welcome.jpg",
+          "about": {
+            "@type": "Resort",
+            "name": "Pinewood Resort",
+            "url": "https://www.pinewoodresort.co.in/",
+            "image": "https://wooshbiz.com/images/resorts/pinewood/entrance-welcome.jpg",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Karjat",
+              "addressRegion": "Maharashtra",
+              "addressCountry": "IN"
+            },
+            "maximumAttendeeCapacity": 150,
+            "amenityFeature": [
+              { "@type": "LocationFeatureSpecification", "name": "Open lawns", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Conferencing facilities", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Multiple pools", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Adventure zone", "value": true }
+            ]
+          }
+        },
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://wooshbiz.com/" },
+            { "@type": "ListItem", "position": 2, "name": "Resorts", "item": "https://wooshbiz.com/resorts.html" },
+            { "@type": "ListItem", "position": 3, "name": "Pinewood Resort" }
+          ]
+        }
+      ]
+    }
+    </script>
 </head>
 <body>
-    <p>This page has moved to <a href="/resorts.html">Recommended Resorts</a>.</p>
+
+<!-- @partial:nav base="/" active="resorts" -->
+<nav class="navbar">
+    <div class="nav-container">
+        <a href="/index.html" class="nav-logo" aria-label="Woosh Biz — home">
+            <img src="/images/wix/wix-2f36ed41.png" alt="Woosh Biz" width="1182" height="466">
+        </a>
+        <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false" aria-controls="navLinks">
+            <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="/index.html">Home</a></li>
+            <li><a href="/high-octane.html">In-Office</a></li>
+            <li><a href="/outdoors.html">Outdoors</a></li>
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle">More</a>
+                <ul class="dropdown-menu">
+                    <li><a href="/about.html">About Us</a></li>
+                    <li><a href="/blog.html">Blogs</a></li>
+                    <li><a href="/contact.html">Free Consultation</a></li>
+                    <li><a href="/resorts.html" class="active" aria-current="page">Resorts Recommended</a></li>
+                    <li><a href="/office.html">Our Office</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</nav>
+<!-- @end:nav -->
+
+<!-- ==================== HERO ==================== -->
+<header class="scene-hero">
+    <span class="glow a"></span><span class="glow b"></span>
+    <div class="wrap hero-inner">
+        <div>
+            <p class="crumbs"><a href="/index.html">Home</a><span>/</span><a href="/resorts.html">Resorts</a><span>/</span>Pinewood Resort</p>
+            <p class="eyebrow" data-w3d="rise" data-w3d-fade>Karjat, Maharashtra &middot; Up to 150 pax</p>
+            <h1 class="display" data-w3d="rise" data-w3d-fade>Pinewood Resort,<br><em>Karjat</em>.</h1>
+            <p class="lede dim" data-w3d="rise" data-w3d-fade>
+                Take a break from the clamour and over-consumerism of city life. Breathe in the good life
+                at Pinewood Resort, a professionally managed family-of-four run resort.
+            </p>
+            <div class="hero-acts">
+                <a class="act" data-magnetic href="https://wa.me/919210804078" target="_blank" rel="noopener" data-cta-note="Pinewood Resort">
+                    <span class="wa"><svg viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.67-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.076 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413"/></svg></span>
+                    <span>Plan a programme here</span>
+                </a>
+                <a class="act ghost" href="https://www.pinewoodresort.co.in/" target="_blank" rel="noopener"><span>Visit pinewoodresort.co.in &#8599;</span></a>
+            </div>
+        </div>
+
+        <div class="deck pw-deck">
+            <span class="deck-plate p1"></span>
+            <span class="deck-plate p2"></span>
+            <figure class="deck-art" data-w3d="layer">
+                <img src="/images/resorts/pinewood/entrance-welcome.jpg"
+                     alt="Pinewood Resort's host greeting a group of students with a namaste beside the resort's sign"
+                     width="1440" height="1080" fetchpriority="high">
+                <figcaption class="deck-cap">Every group gets the namaste at the gate.</figcaption>
+            </figure>
+        </div>
+    </div>
+</header>
+
+<!-- ==================== 01 THE PLACE ==================== -->
+<section class="scene lit">
+    <div class="wrap scene-grid">
+        <div class="scene-title">
+            <p class="scene-count">01 / 03</p>
+            <h2 class="display" data-w3d="rise" data-w3d-fade>Small touches,<br><em>large decisions</em>.</h2>
+        </div>
+        <div>
+            <div class="pw-copy" data-w3d="rise" data-w3d-fade>
+                <p>Their genuine concern for the environment and focus on sustainability shows up in small
+                touches that are backed by large decisions. For instance waste water is treated and used to
+                water plants. Plastic bottles and packaging are discouraged to avoid generating non
+                biodegradable waste. Some fruits and vegetables &mdash; are grown on the property. Life here
+                is refreshing.</p>
+            </div>
+            <div class="panels pw-three" style="margin-top:2rem">
+                <div class="panel" data-w3d="card">
+                    <h3>Water, reused</h3>
+                    <p>Waste water is treated and used to water plants.</p>
+                </div>
+                <div class="panel" data-w3d="card">
+                    <h3>Less plastic</h3>
+                    <p>Plastic bottles and packaging are discouraged.</p>
+                </div>
+                <div class="panel" data-w3d="card">
+                    <h3>Grown on site</h3>
+                    <p>Some fruits and vegetables are grown on the property.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== 02 WHAT WE RUN HERE ==================== -->
+<section class="scene">
+    <span class="glow c"></span>
+    <div class="wrap scene-grid">
+        <div class="scene-title">
+            <p class="scene-count">02 / 03</p>
+            <h2 class="display" data-w3d="rise" data-w3d-fade>What we<br><em>run here</em>.</h2>
+            <p class="dim" data-w3d="rise" data-w3d-fade>
+                We leverage their open expansive lawns, conferencing facilities, multiple pools and the
+                adventure zone to curate high quality team building activities and courses. With a capacity
+                of 150 pax, Pinewood is ideal for management students and corporates that are keen on the
+                rustic charm.
+            </p>
+        </div>
+        <div class="panels">
+            <div class="panel" data-w3d="card">
+                <p class="pw-stat">150</p>
+                <h3>Pax capacity</h3>
+                <p>Ideal for management students and corporates.</p>
+            </div>
+            <div class="panel" data-w3d="card">
+                <h3>Open lawns</h3>
+                <p>Expansive lawns for outdoor team building activities.</p>
+            </div>
+            <div class="panel" data-w3d="card">
+                <h3>Conferencing</h3>
+                <p>Conference facilities for courses and sessions.</p>
+            </div>
+            <div class="panel" data-w3d="card">
+                <h3>Pools &amp; adventure zone</h3>
+                <p>Multiple pools and an adventure zone.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== GALLERY ==================== -->
+<section class="scene lit" id="gallery">
+    <div class="wrap">
+        <div class="scene-head">
+            <p class="eyebrow" data-w3d="rise" data-w3d-fade>Around the resort</p>
+            <h2 class="display" data-w3d="rise" data-w3d-fade>Have a <em>look around</em>.</h2>
+            <p class="dim" data-w3d="rise" data-w3d-fade>Tap any photo to see it full size.</p>
+        </div>
+
+        <div class="gallery pw-gallery">
+            <figure class="pw-cell">
+                <a class="gallery-item" data-w3d="card" data-caption="Pinewood Resort — the pools and the splash tumble" href="/images/resorts/pinewood/water-park.jpg" data-lightbox>
+                    <img src="/images/resorts/pinewood/water-park.jpg" alt="A group cheering in the pool as a giant bucket tips water over them, with coloured water slides behind" width="1440" height="1080" loading="lazy" decoding="async"></a>
+                <figcaption class="pw-cap">Pools &amp; splash tumble</figcaption>
+            </figure>
+            <figure class="pw-cell">
+                <a class="gallery-item" data-w3d="card" data-caption="Pinewood Resort — the tyre wall in the adventure zone" href="/images/resorts/pinewood/adventure-zone.jpg" data-lightbox>
+                    <img src="/images/resorts/pinewood/adventure-zone.jpg" alt="A woman climbing a wall of brightly painted tyres lashed to a bamboo frame in the adventure zone" width="1440" height="1080" loading="lazy" decoding="async"></a>
+                <figcaption class="pw-cap">Adventure zone &middot; tyre wall</figcaption>
+            </figure>
+            <figure class="pw-cell">
+                <a class="gallery-item" data-w3d="card" data-caption="Pinewood Resort — the conference hall, set in rounds" href="/images/resorts/pinewood/conference-hall.jpg" data-lightbox>
+                    <img src="/images/resorts/pinewood/conference-hall.jpg" alt="Conference hall set with round tables, chair covers and water bottles, facing a projector screen" width="1440" height="1080" loading="lazy" decoding="async"></a>
+                <figcaption class="pw-cap">Conference hall</figcaption>
+            </figure>
+            <figure class="pw-cell">
+                <a class="gallery-item" data-w3d="card" data-caption="Pinewood Resort — the dining hall buffet, every dish labelled" href="/images/resorts/pinewood/dining-hall.jpg" data-lightbox>
+                    <img src="/images/resorts/pinewood/dining-hall.jpg" alt="A long buffet counter with labelled chafing dishes beside wide windows looking onto palms and trees" width="1440" height="1080" loading="lazy" decoding="async"></a>
+                <figcaption class="pw-cap">Dining hall</figcaption>
+            </figure>
+            <figure class="pw-cell">
+                <a class="gallery-item" data-w3d="card" data-caption="Pinewood Resort — a guest room" href="/images/resorts/pinewood/guest-room.jpg" data-lightbox>
+                    <img src="/images/resorts/pinewood/guest-room.jpg" alt="Guest room with a double bed, bedside lamp and a window seating corner with two chairs" width="1440" height="1080" loading="lazy" decoding="async"></a>
+                <figcaption class="pw-cap">Guest room</figcaption>
+            </figure>
+            <figure class="pw-cell">
+                <a class="gallery-item" data-w3d="card" data-caption="Pinewood Resort — the welcome at the entrance" href="/images/resorts/pinewood/entrance-welcome.jpg" data-lightbox>
+                    <img src="/images/resorts/pinewood/entrance-welcome.jpg" alt="Pinewood Resort's host greeting a group of students with a namaste beside the resort's sign" width="1440" height="1080" loading="lazy" decoding="async"></a>
+                <figcaption class="pw-cap">The entrance</figcaption>
+            </figure>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== 03 TWO WAYS FROM HERE ==================== -->
+<section class="scene">
+    <div class="wrap scene-grid">
+        <div class="scene-title">
+            <p class="scene-count">03 / 03</p>
+            <h2 class="display" data-w3d="rise" data-w3d-fade>Two ways<br><em>from here</em>.</h2>
+            <p class="dim" data-w3d="rise" data-w3d-fade>Plan your team's programme at Pinewood with us, or head
+            over to the resort's own website.</p>
+        </div>
+        <div>
+            <div class="panels two pw-choice">
+                <div class="panel" data-w3d="card">
+                    <h3>Plan it with Woosh Biz</h3>
+                    <p>Tell us your team size, dates and what you want the day to do. We'll put together a
+                    team building programme built around Pinewood's lawns, pools and adventure zone.</p>
+                    <a class="act small" href="https://wa.me/919210804078" target="_blank" rel="noopener" data-cta-note="Pinewood Resort"><span>Enquire on WhatsApp</span></a>
+                    <a class="act small ghost" href="/contact.html"><span>Free consultation</span></a>
+                </div>
+                <div class="panel" data-w3d="card">
+                    <h3>Visit Pinewood Resort</h3>
+                    <p>Want to see more of the resort itself? Pinewood's own website has the rest of the
+                    property, and you can get in touch with them directly.</p>
+                    <a class="act small ghost" href="https://www.pinewoodresort.co.in/" target="_blank" rel="noopener"><span>pinewoodresort.co.in &#8599;</span></a>
+                </div>
+            </div>
+            <p class="dim" data-w3d="rise" data-w3d-fade style="margin-top:2rem">
+                Still comparing venues? See <a href="/resorts.html">all the resorts we recommend</a>, or read about
+                our <a href="/outdoors.html">outdoor team building programmes</a>.
+            </p>
+        </div>
+    </div>
+</section>
+
+<section class="closing">
+    <span class="glow a"></span>
+    <div class="wrap">
+        <h2 class="display" data-w3d="rise" data-w3d-fade>Bring your team to <em>Pinewood</em>.</h2>
+        <p data-w3d="rise" data-w3d-fade>Tell us your team size, budget and dates &mdash; we'll take it from there.</p>
+        <a class="act" data-magnetic href="https://wa.me/919210804078" target="_blank" rel="noopener" data-cta-note="Pinewood Resort">
+            <span class="wa"><svg viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.67-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.076 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413"/></svg></span>
+            <span>Get a quote in 30 mins</span>
+        </a>
+    </div>
+</section>
+
+<!-- @partial:footer base="/" -->
+<footer class="site-footer">
+    <div class="wrap">
+        <div class="foot">
+            <div>
+                <img class="foot-mark" src="/images/wix/wix-b8e2795e.png" alt="Woosh Biz" width="1182" height="466">
+                <p class="foot-tag">No gyaan. Just fun with learning.</p>
+                <div class="socials">
+                    <a href="https://www.facebook.com/people/Woosh-Biz-by-HTI/100083456102229/" target="_blank" rel="noopener" title="Facebook"><img src="/images/wix/wix-ef6a6ac1.png" alt="Facebook" width="201" height="201"></a>
+                    <a href="https://www.instagram.com/wooshbiz/" target="_blank" rel="noopener" title="Instagram"><img src="/images/wix/wix-cef3b719.png" alt="Instagram" width="201" height="201"></a>
+                    <a href="https://www.linkedin.com/company/woosh-biz-by-hti/" target="_blank" rel="noopener" title="LinkedIn"><img src="/images/wix/wix-b5690303.png" alt="LinkedIn" width="201" height="201"></a>
+                    <a href="https://www.youtube.com/channel/UC9BdT9tzf4841P1B-R7P-Qg" target="_blank" rel="noopener" title="YouTube"><img src="/images/wix/wix-fe985b88.png" alt="YouTube" width="201" height="201"></a>
+                </div>
+            </div>
+            <div>
+                <h3>Company</h3>
+                <a href="/about.html">About Us</a>
+                <a href="/office.html">Our Office</a>
+                <a href="/contact.html">Get In Touch</a>
+                <a href="/contact.html">Free Consultation</a>
+                <a href="/blog.html">Blogs</a>
+            </div>
+            <div>
+                <h3>Programmes</h3>
+                <a href="/high-octane.html">In-Office</a>
+                <a href="/outdoors.html">Outdoors</a>
+                <a href="/resorts.html">Resorts Recommended</a>
+            </div>
+            <div>
+                <h3>Contact</h3>
+                <a href="tel:+919210804078">+91 92108 04078</a>
+                <a href="mailto:team@hti-india.com">team@hti-india.com</a>
+                <span class="foot-rating">&#11088; 4.5 &middot; 150 ratings</span>
+            </div>
+        </div>
+        <div class="foot-end">&copy; 2026 Woosh Biz by HTI India Pvt Ltd. All rights reserved.</div>
+    </div>
+</footer>
+<!-- @end:footer -->
+
+<button class="scroll-to-top" id="scrollToTop" title="Scroll to top" aria-label="Scroll to top">&uarr;</button>
+
 </body>
 </html>

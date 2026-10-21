@@ -15,6 +15,8 @@
     /thrilling-2-day-team-building-retreat/ are the exceptions that prove that
     rule: both were stubs and are now real pages, so they belong here. The
     other four duration stubs are still redirects and still absent.
+    /resorts-recommended-pinewood-resort/ is the same case: once a stub, now
+    Pinewood's venue page.
   -->
   <url>
     <loc>https://wooshbiz.com/</loc>
@@ -53,8 +55,13 @@
   </url>
   <url>
     <loc>https://wooshbiz.com/resorts.html</loc>
-    <lastmod>2026-09-03</lastmod>
+    <lastmod>2026-10-21</lastmod>
     <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://wooshbiz.com/resorts-recommended-pinewood-resort/</loc>
+    <lastmod>2026-10-21</lastmod>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://wooshbiz.com/office.html</loc>

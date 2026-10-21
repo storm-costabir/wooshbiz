@@ -658,6 +658,13 @@
 /* Pushes every button to the same baseline no matter how long the copy runs.
    The site link sits below it, so the auto margin lifts the pair as one block. */
 .venue-body .act { margin-top: auto; width: 100%; }
+/* A venue with its own page (Pinewood) carries two buttons; only the first
+   takes the auto margin, the second sits right under it. Its photo is a link
+   to that page, not a lightbox trigger, so it drops the zoom cursor. */
+.venue-body .act + .act { margin-top: 10px; }
+a.venue-shot { cursor: pointer; }
+.venue-name { transition: color var(--t); }
+.venue-name:hover { color: var(--plum); }
 /* Link out to the venue's own website. Shown as the bare domain rather than
    "Visit site" so it is obvious the click leaves wooshbiz.com. */
 .venue-site {

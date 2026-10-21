@@ -552,7 +552,8 @@
        highest-intent leads on the site land in the wrong bucket. */
     var LANDING_LABELS = {
         'epic-1-day-team-building': '1-Day programme',
-        'thrilling-2-day-team-building-retreat': '2-Day retreat'
+        'thrilling-2-day-team-building-retreat': '2-Day retreat',
+        'resorts-recommended-pinewood-resort': 'Resort: Pinewood'
     };
 
     var pageLabel = (function () {
