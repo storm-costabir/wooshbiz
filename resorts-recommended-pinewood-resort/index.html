@@ -42,7 +42,7 @@
       This URL is a legacy Wix address that used to redirect to resorts.html.
       It is the Pinewood venue page again, linked from Pinewood's card there.
       The page has two exits on purpose: enquire with us, or go to the
-      resort's own website. Both are offered side by side in section 03.
+      resort's own website. Both are offered side by side in section 05.
     -->
     <style>
         /* The photos are 4:3. The stock .deck-art crop is 4:5, which would cut
@@ -60,6 +60,13 @@
         .pw-copy p + p { margin-top: 14px; }
         /* .panel p would otherwise shrink the figure to body size. */
         .panel .pw-stat { font-family: var(--disp); font-size: 2.6rem; font-weight: 800; line-height: 1; color: var(--gold); margin-bottom: 10px; }
+        .lit .panel .pw-stat { color: var(--plum); }
+        /* Chip borders are drawn for dark scenes; on a white panel they vanish. */
+        .lit .panel .tags span { border-color: var(--line-lit); }
+        /* Game lists: one full-width row each, so the chips read across
+           instead of wrapping one per line in a narrow column. */
+        .pw-stack { grid-template-columns: 1fr; }
+        .pw-stack .panel h3 { margin-bottom: 0; }
         /* Three short facts: one row of three, not two plus an orphan. */
         @media (min-width: 969px) { .pw-three { grid-template-columns: repeat(3, 1fr); } }
         .pw-choice .act { margin-top: 18px; }
@@ -92,7 +99,11 @@
               { "@type": "LocationFeatureSpecification", "name": "Open lawns", "value": true },
               { "@type": "LocationFeatureSpecification", "name": "Conferencing facilities", "value": true },
               { "@type": "LocationFeatureSpecification", "name": "Multiple pools", "value": true },
-              { "@type": "LocationFeatureSpecification", "name": "Adventure zone", "value": true }
+              { "@type": "LocationFeatureSpecification", "name": "Adventure zone", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Indoor games: table tennis, chess, carrom, American table football, ludo, snake & ladder", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Outdoor games: cricket, volleyball, badminton", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Self-use adventure activities: archery, Burma bridge, commando net", "value": true },
+              { "@type": "LocationFeatureSpecification", "name": "Television", "value": false }
             ]
           }
         },
@@ -172,11 +183,46 @@
     </div>
 </header>
 
-<!-- ==================== 01 THE PLACE ==================== -->
+<!-- ==================== 01 THE STORY ==================== -->
 <section class="scene lit">
     <div class="wrap scene-grid">
         <div class="scene-title">
-            <p class="scene-count">01 / 03</p>
+            <p class="scene-count">01 / 05</p>
+            <h2 class="display" data-w3d="rise" data-w3d-fade>Since<br><em>1989</em>.</h2>
+            <p class="dim" data-w3d="rise" data-w3d-fade>From a private farmhouse in Karjat to a resort built
+            around a nature-first philosophy.</p>
+        </div>
+        <div class="panels">
+            <div class="panel" data-w3d="card">
+                <p class="pw-stat">1989</p>
+                <h3>A private farmhouse</h3>
+                <p>Began as a private farmhouse in the peaceful village surroundings of Karjat.</p>
+            </div>
+            <div class="panel" data-w3d="card">
+                <p class="pw-stat">2006</p>
+                <h3>A full-fledged resort</h3>
+                <p>Transformed into a full-fledged resort, opening doors to guests.</p>
+            </div>
+            <div class="panel" data-w3d="card">
+                <h3>The Pinewood concept</h3>
+                <p>Built around a nature-first philosophy with greenery, open spaces, and minimal digital
+                distraction (no-TV concept).</p>
+            </div>
+            <div class="panel" data-w3d="card">
+                <h3>Growth</h3>
+                <p>Gradually evolved into a destination for:</p>
+                <div class="tags"><span>Corporate outings</span><span>Family stays</span><span>Social celebrations</span></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== 02 SUSTAINABILITY ==================== -->
+<section class="scene">
+    <span class="glow c"></span>
+    <div class="wrap scene-grid">
+        <div class="scene-title">
+            <p class="scene-count">02 / 05</p>
             <h2 class="display" data-w3d="rise" data-w3d-fade>Small touches,<br><em>large decisions</em>.</h2>
         </div>
         <div>
@@ -205,12 +251,11 @@
     </div>
 </section>
 
-<!-- ==================== 02 WHAT WE RUN HERE ==================== -->
-<section class="scene">
-    <span class="glow c"></span>
+<!-- ==================== 03 WHAT WE RUN HERE ==================== -->
+<section class="scene lit">
     <div class="wrap scene-grid">
         <div class="scene-title">
-            <p class="scene-count">02 / 03</p>
+            <p class="scene-count">03 / 05</p>
             <h2 class="display" data-w3d="rise" data-w3d-fade>What we<br><em>run here</em>.</h2>
             <p class="dim" data-w3d="rise" data-w3d-fade>
                 We leverage their open expansive lawns, conferencing facilities, multiple pools and the
@@ -236,6 +281,33 @@
             <div class="panel" data-w3d="card">
                 <h3>Pools &amp; adventure zone</h3>
                 <p>Multiple pools and an adventure zone.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== 04 OFFERINGS & ACTIVITIES ==================== -->
+<section class="scene">
+    <span class="glow c"></span>
+    <div class="wrap scene-grid">
+        <div class="scene-title">
+            <p class="scene-count">04 / 05</p>
+            <h2 class="display" data-w3d="rise" data-w3d-fade>Offerings &amp;<br><em>activities</em>.</h2>
+            <p class="dim" data-w3d="rise" data-w3d-fade>Indoor games, outdoor games and self-use adventure
+            activities.</p>
+        </div>
+        <div class="panels pw-stack">
+            <div class="panel" data-w3d="card">
+                <h3>Indoor games</h3>
+                <div class="tags"><span>Table Tennis</span><span>Chess</span><span>Carrom</span><span>American Table Football</span><span>Ludo</span><span>Snake &amp; Ladder</span></div>
+            </div>
+            <div class="panel" data-w3d="card">
+                <h3>Outdoor games</h3>
+                <div class="tags"><span>Cricket</span><span>Volleyball</span><span>Badminton</span></div>
+            </div>
+            <div class="panel" data-w3d="card">
+                <h3>Self-use adventure activities</h3>
+                <div class="tags"><span>Archery</span><span>Burma Bridge</span><span>Commando Net</span></div>
             </div>
         </div>
     </div>
@@ -289,7 +361,7 @@
 <section class="scene">
     <div class="wrap scene-grid">
         <div class="scene-title">
-            <p class="scene-count">03 / 03</p>
+            <p class="scene-count">05 / 05</p>
             <h2 class="display" data-w3d="rise" data-w3d-fade>Two ways<br><em>from here</em>.</h2>
             <p class="dim" data-w3d="rise" data-w3d-fade>Plan your team's programme at Pinewood with us, or head
             over to the resort's own website.</p>
