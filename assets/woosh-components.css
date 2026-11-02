@@ -707,8 +707,8 @@ a.venue-shot { cursor: pointer; }
     position: relative; display: block; width: 100%; aspect-ratio: 16 / 9;
     background: var(--night); border: 0; padding: 0; cursor: pointer; overflow: hidden;
 }
-.yt img.yt-thumb { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform var(--t-slow), opacity var(--t); }
-.yt:hover img.yt-thumb { transform: scale(1.06); opacity: .85; }
+.yt .yt-thumb { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform var(--t-slow), opacity var(--t); }
+.yt:hover .yt-thumb { transform: scale(1.06); opacity: .85; }
 .yt .yt-play {
     position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);
     width: 58px; height: 58px; border-radius: 50%;
@@ -723,6 +723,21 @@ a.venue-shot { cursor: pointer; }
     color: var(--paper); font-size: .84rem; font-weight: 500; text-align: left;
 }
 .yt + iframe, iframe.yt-live { width: 100%; aspect-ratio: 16 / 9; border: 0; display: block; }
+
+/* The dialog the facade opens. Rides on .lightbox for the backdrop and the
+   close button; only the stage is its own. 16:9 at the largest size that fits
+   both the width and the height, so a phone held either way shows the whole
+   frame. */
+.video-box-figure { width: min(92vw, calc((100vh - 140px) * 16 / 9), 1100px); text-align: center; }
+.video-box-stage { position: relative; width: 100%; aspect-ratio: 16 / 9; background: #000; border-radius: var(--r); overflow: hidden; box-shadow: var(--sh-2); }
+.video-box-stage iframe, .video-box-stage > div { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.video-box figcaption { color: var(--paper); font-size: .92rem; font-weight: 500; padding-top: 14px; }
+@media (max-width: 640px) {
+    .video-box { padding: 12px; }
+    .video-box-figure { width: 100%; }
+    .video-box-stage { border-radius: var(--r-sm); }
+    .video-box .lightbox-close { top: 12px; right: 12px; }
+}
 
 /* --------------------------------------------------------------------------
    Responsive

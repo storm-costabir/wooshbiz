@@ -317,13 +317,41 @@
     })();
 
     /* ----------------------------------------------------------------------
-       YouTube facade
+       YouTube facade + video lightbox
 
        <div data-yt="VIDEO_ID" data-title="..."></div>
 
-       Renders a thumbnail plus a play button; the iframe is only built on
-       click. Keeps the page fast and keeps a dozen YouTube cookies off it
-       until someone actually asks for a video.
+       Renders a thumbnail plus a play button; nothing from YouTube loads
+       until someone taps it. Keeps the page fast and keeps a dozen YouTube
+       cookies off it until someone actually asks for a video.
+
+       The tap opens the video in a full-screen dialog rather than swapping
+       an iframe into the card, which is what this used to do and why phones
+       could not play it:
+
+         - The cards are woosh-3d cards, re-transformed in 3D on every scroll
+           frame. WebKit (Safari, and every browser on an iPhone) mis-hit-tests
+           an iframe inside a 3D-transformed box, so YouTube's own play button
+           often ignored the tap. The dialog sits on <body>, untransformed.
+         - A tap on our page does not count as a tap inside YouTube's frame,
+           so `?autoplay=1` was silently refused on iOS and left a second play
+           button the reader had to find. The player API's playVideo() from
+           onReady starts it on most phones; where Apple still refuses, the
+           one tap now lands on a full-screen player that takes it.
+         - The iframe was created with loading="lazy", which can hold back a
+           frame the reader just asked for.
+
+       If the API script is blocked (an ad blocker, a strict network) the
+       dialog falls back to a plain embed after a few seconds.
+
+       Optional silent preview in place of the still:
+
+       <div data-yt="VIDEO_ID" data-title="..." data-preview="videos/previews/x.mp4"></div>
+
+       The clip plays only while its card is on screen, and on a phone only
+       the most visible one plays, so a column of five never decodes five
+       videos at once. Reduced motion or a data-saver setting keeps the still.
+       A missing clip is harmless: the poster (the same YouTube still) stays.
        ---------------------------------------------------------------------- */
     (function () {
         var slots = all('[data-yt]');
@@ -333,6 +361,160 @@
         // when there is no http origin we send people to YouTube instead.
         var canEmbed = location.protocol === 'http:' || location.protocol === 'https:';
 
+        var conn = navigator.connection;
+        var canPreview = 'IntersectionObserver' in W && !reduced &&
+            !W.matchMedia('(prefers-reduced-data: reduce)').matches &&
+            !(conn && conn.saveData);
+        // Matches the width where the video grid drops to one column.
+        var oneAtATime = W.matchMedia('(max-width: 760px)');
+        var previews = [];      // { video, ratio }
+        var paused = false;     // true while the dialog is open
+
+        function playVisible() {
+            // On a phone two cards are often both fully on screen, so "most
+            // visible" is a tie. The one nearest the middle of the screen is
+            // the one being looked at.
+            var best = null, bestGap = Infinity, mid = W.innerHeight / 2;
+            if (oneAtATime.matches) {
+                previews.forEach(function (p) {
+                    if (p.ratio <= 0.5) return;
+                    var r = p.video.getBoundingClientRect();
+                    var gap = Math.abs(r.top + r.height / 2 - mid);
+                    if (gap < bestGap) { best = p; bestGap = gap; }
+                });
+            }
+            previews.forEach(function (p) {
+                var on = !paused && (oneAtATime.matches ? p === best : p.ratio > 0.5);
+                if (on && p.video.paused) {
+                    var go = p.video.play();
+                    if (go && go.catch) go.catch(function () {});
+                } else if (!on && !p.video.paused) {
+                    p.video.pause();
+                }
+            });
+        }
+
+        var watcher = canPreview && new IntersectionObserver(function (entries) {
+            entries.forEach(function (e) {
+                previews.forEach(function (p) {
+                    if (p.video === e.target) p.ratio = e.isIntersecting ? e.intersectionRatio : 0;
+                });
+            });
+            playVisible();
+        }, { threshold: [0, 0.25, 0.5, 0.75, 1] });
+        if (watcher && oneAtATime.addEventListener) oneAtATime.addEventListener('change', playVisible);
+
+        // The observer only fires when a card crosses a threshold, and two
+        // fully visible cards cross none while the reader scrolls between
+        // them, so on a phone the choice is also re-made on scroll.
+        var scrollQueued = false;
+        if (watcher) {
+            W.addEventListener('scroll', function () {
+                if (scrollQueued || !oneAtATime.matches) return;
+                scrollQueued = true;
+                W.requestAnimationFrame(function () { scrollQueued = false; playVisible(); });
+            }, { passive: true });
+        }
+
+        var box = null, stage = null, heading = null, closeBtn = null;
+        var player = null, lastFocus = null, fallbackTimer = 0, openId = null;
+
+        function buildBox() {
+            box = D.createElement('div');
+            box.className = 'lightbox video-box';
+            box.setAttribute('role', 'dialog');
+            box.setAttribute('aria-modal', 'true');
+            box.setAttribute('aria-labelledby', 'videoBoxTitle');
+            box.innerHTML =
+                '<button class="lightbox-close" type="button" aria-label="Close video">&times;</button>' +
+                '<figure class="video-box-figure">' +
+                    '<div class="video-box-stage"></div>' +
+                    '<figcaption id="videoBoxTitle"></figcaption>' +
+                '</figure>';
+            D.body.appendChild(box);
+            stage = box.querySelector('.video-box-stage');
+            heading = box.querySelector('figcaption');
+            closeBtn = box.querySelector('.lightbox-close');
+
+            box.addEventListener('click', function (e) {
+                if (e.target === box || e.target.closest('.lightbox-close')) close();
+            });
+            D.addEventListener('keydown', function (e) {
+                if (e.key === 'Escape' && box.classList.contains('open')) close();
+            });
+        }
+
+        // The API is fetched once, on the first tap, and shared after that.
+        var apiReady = null;
+        function loadApi() {
+            if (apiReady) return apiReady;
+            apiReady = new Promise(function (resolve) {
+                if (window.YT && window.YT.Player) return resolve(window.YT);
+                var prev = window.onYouTubeIframeAPIReady;
+                window.onYouTubeIframeAPIReady = function () {
+                    if (prev) prev();
+                    resolve(window.YT);
+                };
+                var s = D.createElement('script');
+                s.src = 'https://www.youtube.com/iframe_api';
+                s.async = true;
+                D.head.appendChild(s);
+            });
+            return apiReady;
+        }
+
+        function plainEmbed(id, title) {
+            stage.innerHTML = '';
+            var f = D.createElement('iframe');
+            f.src = 'https://www.youtube-nocookie.com/embed/' + id + '?autoplay=1&playsinline=1&rel=0';
+            f.title = title;
+            f.allow = 'accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; fullscreen';
+            f.allowFullscreen = true;
+            stage.appendChild(f);
+        }
+
+        function open(id, title) {
+            if (!box) buildBox();
+            lastFocus = D.activeElement;
+            openId = id;
+            heading.textContent = title;
+            stage.innerHTML = '<div></div>';
+            box.classList.add('open');
+            D.body.style.overflow = 'hidden';
+            closeBtn.focus();
+            paused = true;
+            playVisible();
+
+            fallbackTimer = setTimeout(function () {
+                if (openId === id && !player) plainEmbed(id, title);
+            }, 4000);
+
+            loadApi().then(function (YT) {
+                // Closed, or another video opened, or the fallback already ran.
+                if (openId !== id || stage.querySelector('iframe')) return;
+                clearTimeout(fallbackTimer);
+                player = new YT.Player(stage.firstChild, {
+                    host: 'https://www.youtube-nocookie.com',
+                    videoId: id,
+                    playerVars: { autoplay: 1, playsinline: 1, rel: 0 },
+                    events: { onReady: function (e) { e.target.playVideo(); } }
+                });
+            });
+        }
+
+        function close() {
+            clearTimeout(fallbackTimer);
+            openId = null;
+            if (player && player.destroy) player.destroy();
+            player = null;
+            stage.innerHTML = '';   // stops playback, the plain embed included
+            box.classList.remove('open');
+            D.body.style.overflow = '';
+            if (lastFocus && lastFocus.focus) lastFocus.focus();
+            paused = false;
+            playVisible();
+        }
+
         slots.forEach(function (slot) {
             var id = slot.getAttribute('data-yt');
             var title = slot.getAttribute('data-title') || 'Woosh Biz video';
@@ -340,29 +522,37 @@
             var btn = D.createElement(canEmbed ? 'button' : 'a');
             btn.className = 'yt';
             btn.setAttribute('aria-label', 'Play: ' + title);
-            if (canEmbed) { btn.type = 'button'; }
-            else {
+            if (canEmbed) {
+                btn.type = 'button';
+                btn.setAttribute('aria-haspopup', 'dialog');
+            } else {
                 btn.href = 'https://www.youtube.com/watch?v=' + id;
                 btn.target = '_blank';
                 btn.rel = 'noopener';
             }
 
+            var still = 'https://i.ytimg.com/vi/' + id + '/hqdefault.jpg';
+            var clip = canPreview && slot.getAttribute('data-preview');
             btn.innerHTML =
-                '<img class="yt-thumb" src="https://i.ytimg.com/vi/' + id + '/hqdefault.jpg" alt="' +
-                title.replace(/"/g, '&quot;') + '" loading="lazy" width="480" height="360">' +
+                (clip
+                    // No autoplay attribute: the observer above decides when
+                    // it plays, and autoplay would start every clip at once.
+                    ? '<video class="yt-thumb" muted loop playsinline preload="none" disablepictureinpicture ' +
+                      'poster="' + still + '" src="' + clip + '" aria-hidden="true"></video>'
+                    : '<img class="yt-thumb" src="' + still + '" alt="' +
+                      title.replace(/"/g, '&quot;') + '" loading="lazy" width="480" height="360">') +
                 '<span class="yt-play" aria-hidden="true">&#9654;</span>' +
                 '<span class="yt-label">' + title + '</span>';
 
+            if (clip) {
+                var v = btn.querySelector('video');
+                v.muted = true;   // the attribute alone is not enough for every browser's autoplay rule
+                previews.push({ video: v, ratio: 0 });
+                watcher.observe(v);
+            }
+
             if (canEmbed) {
-                btn.addEventListener('click', function () {
-                    var f = D.createElement('iframe');
-                    f.src = 'https://www.youtube-nocookie.com/embed/' + id + '?autoplay=1&rel=0';
-                    f.title = title;
-                    f.allow = 'accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture';
-                    f.allowFullscreen = true;
-                    f.loading = 'lazy';
-                    btn.replaceWith(f);
-                });
+                btn.addEventListener('click', function () { open(id, title); });
             }
 
             slot.appendChild(btn);

@@ -352,6 +352,26 @@
     .durations .panel-body h3 { font-size: 1.22rem; margin-bottom: 2px; }
     .durations .panel-note { font-size: .84rem; color: var(--ink-2); }
     .durations .panel.link-panel .go { margin-top: auto; padding-top: 14px; }
+
+    /* ---------- See us in action ---------- */
+    /* Five videos in two columns leave one alone in the last row; centre it
+       at the same width as the others rather than leaving it flush left. */
+    @media (min-width: 761px) {
+        .action-reel > .frame:last-child:nth-child(odd) {
+            grid-column: 1 / -1;
+            justify-self: center;
+            width: calc((100% - clamp(18px, 2.4vw, 28px)) / 2);
+        }
+    }
+
+    /* Watch on YouTube, under each video */
+    .frame.stack .yt-out {
+        display: inline-block;
+        padding: 12px 16px 14px;
+        font-size: .82rem; font-weight: 600; color: var(--gold);
+        transition: transform var(--t), color var(--t);
+    }
+    .frame.stack .yt-out:hover { color: var(--paper); transform: translateX(4px); }
     </style>
 
     <!-- The one canonical description of the business.
@@ -554,12 +574,12 @@
             <p class="dim" data-w3d="rise" data-w3d-fade>Real teams. Real results. Real fun. Press play &mdash; the
             video only loads when you ask for it.</p>
         </div>
-        <div class="reel two">
-            <article class="frame stack" data-w3d="card"><div data-yt="5CMOe_3UPhk" data-title="The ultimate team building challenge"></div></article>
-            <article class="frame stack" data-w3d="card"><div data-yt="aRa3-lk0ss0" data-title="The team that plays together"></div></article>
-            <article class="frame stack" data-w3d="card"><div data-yt="d7hAV96jBg0" data-title="Offsite for Swastik Tins"></div></article>
-            <article class="frame stack" data-w3d="card"><div data-yt="KPirBZoTSPA" data-title="Corporate Team Building for Arete"></div></article>
-            <article class="frame stack" data-w3d="card"><div data-yt="2cJditUwJCY" data-title="Team Building for Club Jolies"></div></article>
+        <div class="reel two action-reel">
+            <article class="frame stack" data-w3d="card"><div data-yt="5CMOe_3UPhk" data-title="The ultimate team building challenge"></div><a class="yt-out" href="https://www.youtube.com/watch?v=5CMOe_3UPhk" target="_blank" rel="noopener">Watch on YouTube &rarr;</a></article>
+            <article class="frame stack" data-w3d="card"><div data-yt="aRa3-lk0ss0" data-title="The team that plays together"></div><a class="yt-out" href="https://www.youtube.com/watch?v=aRa3-lk0ss0" target="_blank" rel="noopener">Watch on YouTube &rarr;</a></article>
+            <article class="frame stack" data-w3d="card"><div data-yt="d7hAV96jBg0" data-title="Offsite for Swastik Tins"></div><a class="yt-out" href="https://www.youtube.com/watch?v=d7hAV96jBg0" target="_blank" rel="noopener">Watch on YouTube &rarr;</a></article>
+            <article class="frame stack" data-w3d="card"><div data-yt="KPirBZoTSPA" data-title="Corporate Team Building for Arete"></div><a class="yt-out" href="https://www.youtube.com/watch?v=KPirBZoTSPA" target="_blank" rel="noopener">Watch on YouTube &rarr;</a></article>
+            <article class="frame stack" data-w3d="card"><div data-yt="2cJditUwJCY" data-title="Team Building for Club Jolies"></div><a class="yt-out" href="https://www.youtube.com/watch?v=2cJditUwJCY" target="_blank" rel="noopener">Watch on YouTube &rarr;</a></article>
         </div>
     </div>
 </section>
