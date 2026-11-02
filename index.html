@@ -353,6 +353,38 @@
     .durations .panel-note { font-size: .84rem; color: var(--ink-2); }
     .durations .panel.link-panel .go { margin-top: auto; padding-top: 14px; }
 
+    /* ---------- Client voices ---------- */
+    /* Each card opens its video in the on-page dialog (woosh-ui.js,
+       data-yt-open) instead of sending the reader off to YouTube. The play
+       button matches the "See us in action" cards above, the length badge
+       says how short the ask is, and the footer line says what a tap does. */
+    .voice:focus-visible { outline: 3px solid var(--orange); outline-offset: 3px; }
+    .voice .voice-play {
+        width: 52px; height: 52px;
+        background: rgba(244, 121, 32, .94); color: #fff; font-size: 1rem;
+        box-shadow: 0 6px 18px rgba(10, 3, 8, .28);
+        transition: transform var(--t) var(--ease);
+    }
+    .voice:hover .voice-play,
+    .voice.w3d-focus .voice-play { transform: scale(1.1); }
+    .voice-time {
+        position: absolute; right: 8px; bottom: 8px;
+        padding: 2px 7px; border-radius: 6px;
+        background: rgba(10, 3, 8, .78); color: #fff;
+        font-size: .72rem; font-weight: 600; font-variant-numeric: tabular-nums;
+    }
+    .voice-foot {
+        display: flex; align-items: center; justify-content: space-between;
+        flex-wrap: wrap; gap: 8px 16px; margin-top: 12px;
+    }
+    .voice-foot .voice-brand { margin-top: 0; height: 30px; opacity: .85; }
+    .voice-cta {
+        font-size: .84rem; font-weight: 600; color: var(--plum); white-space: nowrap;
+        transition: transform var(--t);
+    }
+    .voice:hover .voice-cta,
+    .voice:focus-visible .voice-cta { transform: translateX(4px); }
+
     /* ---------- See us in action ---------- */
     /* Five videos in two columns leave one alone in the last row; centre it
        at the same width as the others rather than leaving it flush left. */
@@ -673,25 +705,25 @@
             <p class="dim" data-w3d="rise" data-w3d-fade>Real teams, real stories. Tap any card to watch them tell it themselves.</p>
         </div>
         <div class="voices">
-            <a class="voice" data-w3d="card" href="https://www.youtube.com/watch?v=0LXwBcbDXO8" target="_blank" rel="noopener">
-                <div class="voice-frame"><img src="https://i.ytimg.com/vi/0LXwBcbDXO8/hqdefault.jpg" alt="Vijay Rajput — Woosh Biz feedback" width="480" height="360" loading="lazy"><span class="voice-play" aria-hidden="true">&#9654;</span></div>
-                <div><h3>Vijay Rajput</h3><small>IP Services</small><img class="voice-brand" src="images/wix/wix-e7877f20.png" alt="IP Services" width="136" height="64" loading="lazy"></div>
+            <a class="voice" data-w3d="card" href="https://www.youtube.com/watch?v=0LXwBcbDXO8" target="_blank" rel="noopener" data-yt-open="0LXwBcbDXO8" data-title="Vijay Rajput, IP Services">
+                <div class="voice-frame"><img src="https://i.ytimg.com/vi/0LXwBcbDXO8/hqdefault.jpg" alt="Vijay Rajput — Woosh Biz feedback" width="480" height="360" loading="lazy"><span class="voice-play" aria-hidden="true">&#9654;</span><span class="voice-time"><span class="visually-hidden">Length </span>0:42</span></div>
+                <div class="voice-body"><h3>Vijay Rajput</h3><small>IP Services</small><span class="voice-foot"><img class="voice-brand" src="images/wix/wix-e7877f20.png" alt="IP Services" width="136" height="64" loading="lazy"><span class="voice-cta">Watch their story &rarr;</span></span></div>
             </a>
-            <a class="voice" data-w3d="card" href="https://www.youtube.com/watch?v=24UVuhVgcGk" target="_blank" rel="noopener">
-                <div class="voice-frame"><img src="https://i.ytimg.com/vi/24UVuhVgcGk/hqdefault.jpg" alt="Aditi Khanna — Woosh Biz feedback" width="480" height="360" loading="lazy"><span class="voice-play" aria-hidden="true">&#9654;</span></div>
-                <div><h3>Aditi Khanna</h3><small>Partner at FutureSkomp LLP</small><img class="voice-brand" src="images/wix/wix-cc6177f2.png" alt="FutureSkomp LLP" width="136" height="64" loading="lazy"></div>
+            <a class="voice" data-w3d="card" href="https://www.youtube.com/watch?v=24UVuhVgcGk" target="_blank" rel="noopener" data-yt-open="24UVuhVgcGk" data-title="Aditi Khanna, FutureSkomp LLP">
+                <div class="voice-frame"><img src="https://i.ytimg.com/vi/24UVuhVgcGk/hqdefault.jpg" alt="Aditi Khanna — Woosh Biz feedback" width="480" height="360" loading="lazy"><span class="voice-play" aria-hidden="true">&#9654;</span><span class="voice-time"><span class="visually-hidden">Length </span>0:36</span></div>
+                <div class="voice-body"><h3>Aditi Khanna</h3><small>Partner at FutureSkomp LLP</small><span class="voice-foot"><img class="voice-brand" src="images/wix/wix-cc6177f2.png" alt="FutureSkomp LLP" width="136" height="64" loading="lazy"><span class="voice-cta">Watch their story &rarr;</span></span></div>
             </a>
-            <a class="voice" data-w3d="card" href="https://www.youtube.com/watch?v=dnEX3EFsFWU" target="_blank" rel="noopener">
-                <div class="voice-frame"><img src="https://i.ytimg.com/vi/dnEX3EFsFWU/hqdefault.jpg" alt="Saloni Thakkar — Woosh Biz feedback" width="480" height="360" loading="lazy"><span class="voice-play" aria-hidden="true">&#9654;</span></div>
-                <div><h3>Saloni Thakkar</h3><small>Senior Manager Training</small><img class="voice-brand" src="images/wix/wix-72cbf69a.png" alt="Employer logo" width="136" height="64" loading="lazy"></div>
+            <a class="voice" data-w3d="card" href="https://www.youtube.com/watch?v=dnEX3EFsFWU" target="_blank" rel="noopener" data-yt-open="dnEX3EFsFWU" data-title="Saloni Thakkar, Senior Manager Training">
+                <div class="voice-frame"><img src="https://i.ytimg.com/vi/dnEX3EFsFWU/hqdefault.jpg" alt="Saloni Thakkar — Woosh Biz feedback" width="480" height="360" loading="lazy"><span class="voice-play" aria-hidden="true">&#9654;</span><span class="voice-time"><span class="visually-hidden">Length </span>0:26</span></div>
+                <div class="voice-body"><h3>Saloni Thakkar</h3><small>Senior Manager Training</small><span class="voice-foot"><img class="voice-brand" src="images/wix/wix-72cbf69a.png" alt="Employer logo" width="136" height="64" loading="lazy"><span class="voice-cta">Watch their story &rarr;</span></span></div>
             </a>
-            <a class="voice" data-w3d="card" href="https://www.youtube.com/watch?v=ezc0rHC3qls" target="_blank" rel="noopener">
-                <div class="voice-frame"><img src="https://i.ytimg.com/vi/ezc0rHC3qls/hqdefault.jpg" alt="Dr R. Chandran — Woosh Biz feedback" width="480" height="360" loading="lazy"><span class="voice-play" aria-hidden="true">&#9654;</span></div>
-                <div><h3>Dr R. Chandran</h3><small>Director</small><img class="voice-brand" src="images/wix/wix-ac47178e.png" alt="Pillai College of Engineering" width="136" height="64" loading="lazy"></div>
+            <a class="voice" data-w3d="card" href="https://www.youtube.com/watch?v=ezc0rHC3qls" target="_blank" rel="noopener" data-yt-open="ezc0rHC3qls" data-title="Dr R. Chandran, Pillai College of Engineering">
+                <div class="voice-frame"><img src="https://i.ytimg.com/vi/ezc0rHC3qls/hqdefault.jpg" alt="Dr R. Chandran — Woosh Biz feedback" width="480" height="360" loading="lazy"><span class="voice-play" aria-hidden="true">&#9654;</span><span class="voice-time"><span class="visually-hidden">Length </span>0:49</span></div>
+                <div class="voice-body"><h3>Dr R. Chandran</h3><small>Director</small><span class="voice-foot"><img class="voice-brand" src="images/wix/wix-ac47178e.png" alt="Pillai College of Engineering" width="136" height="64" loading="lazy"><span class="voice-cta">Watch their story &rarr;</span></span></div>
             </a>
-            <a class="voice" data-w3d="card" href="https://www.youtube.com/watch?v=geojIntTGiA" target="_blank" rel="noopener">
-                <div class="voice-frame"><img src="https://i.ytimg.com/vi/geojIntTGiA/hqdefault.jpg" alt="Sanjay — Woosh Biz feedback" width="480" height="360" loading="lazy"><span class="voice-play" aria-hidden="true">&#9654;</span></div>
-                <div><h3>Sanjay</h3><small>Creative Director for Films</small><img class="voice-brand" src="images/wix/wix-12d557bd.png" alt="Jio Studio" width="136" height="64" loading="lazy"></div>
+            <a class="voice" data-w3d="card" href="https://www.youtube.com/watch?v=geojIntTGiA" target="_blank" rel="noopener" data-yt-open="geojIntTGiA" data-title="Sanjay, Jio Studios">
+                <div class="voice-frame"><img src="https://i.ytimg.com/vi/geojIntTGiA/hqdefault.jpg" alt="Sanjay — Woosh Biz feedback" width="480" height="360" loading="lazy"><span class="voice-play" aria-hidden="true">&#9654;</span><span class="voice-time"><span class="visually-hidden">Length </span>0:22</span></div>
+                <div class="voice-body"><h3>Sanjay</h3><small>Creative Director for Films</small><span class="voice-foot"><img class="voice-brand" src="images/wix/wix-12d557bd.png" alt="Jio Studio" width="136" height="64" loading="lazy"><span class="voice-cta">Watch their story &rarr;</span></span></div>
             </a>
         </div>
     </div>

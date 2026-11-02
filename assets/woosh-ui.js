@@ -355,7 +355,8 @@
        ---------------------------------------------------------------------- */
     (function () {
         var slots = all('[data-yt]');
-        if (!slots.length) return;
+        var links = all('[data-yt-open]');
+        if (!slots.length && !links.length) return;
 
         // YouTube refuses to embed on a file:// origin (its "Error 153"), so
         // when there is no http origin we send people to YouTube instead.
@@ -556,6 +557,21 @@
             }
 
             slot.appendChild(btn);
+        });
+
+        /* A plain link can open the same dialog:
+
+               <a href="https://www.youtube.com/watch?v=ID" data-yt-open="ID" data-title="...">
+
+           The href keeps it working without JS, and a ctrl/cmd/shift or
+           middle click still opens YouTube in a new tab as the reader asked. */
+        if (canEmbed) links.forEach(function (a) {
+            a.setAttribute('aria-haspopup', 'dialog');
+            a.addEventListener('click', function (e) {
+                if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+                e.preventDefault();
+                open(a.getAttribute('data-yt-open'), a.getAttribute('data-title') || 'Woosh Biz video');
+            });
         });
     })();
 
