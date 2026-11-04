@@ -111,8 +111,8 @@ for (const rel of targets) {
         b => b.parsed && b.parsed['@type'] === 'FAQPage'
     );
 
-    /* Compare MEANING, not bytes. The hand-written blocks on high-octane.html
-       and outdoors.html say exactly the right thing in slightly different
+    /* Compare MEANING, not bytes. The hand-written blocks on the In-Office
+       and Outdoors pages say exactly the right thing in slightly different
        whitespace, and a byte comparison called them stale and offered to
        rewrite them — churn on correct pages, and a --check that disagrees
        with check-schema about pages check-schema passes. If the schema

@@ -125,7 +125,7 @@
 
             var html = list.map(function (pair) {
                 var name = esc(pair[1]);
-                return '<img src="images/wix/wix-' + pair[0] + '.png" alt="' + name +
+                return '<img src="/images/wix/wix-' + pair[0] + '.png" alt="' + name +
                        '" title="' + name + '" loading="lazy" width="' + w +
                        '" height="' + h + '" data-logo>';
             }).join('');
@@ -741,9 +741,7 @@
 
     var PAGE_LABELS = {
         'index.html':       'Home',
-        'high-octane.html': 'In-Office programmes',
-        'outdoors.html':    'Outdoor programmes',
-        'resorts.html':     'Resorts we recommend',
+        'resorts.html':    'Resorts we recommend',
         'about.html':       'About us',
         'contact.html':     'Contact',
         'blog.html':        'Blog',
@@ -759,7 +757,11 @@
     var LANDING_LABELS = {
         'epic-1-day-team-building': '1-Day programme',
         'thrilling-2-day-team-building-retreat': '2-Day retreat',
-        'resorts-recommended-pinewood-resort': 'Resort: Pinewood'
+        'resorts-recommended-pinewood-resort': 'Resort: Pinewood',
+        // Same labels the pages had as high-octane.html and outdoors.html,
+        // so GA4 reports carry on in the same rows after the move.
+        'indoor-team-building-activities': 'In-Office programmes',
+        'outdoor-team-building': 'Outdoor programmes'
     };
 
     var pageLabel = (function () {

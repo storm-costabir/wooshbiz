@@ -72,7 +72,9 @@ function indent(block, pad) {
 const LANDING_PAGES = [
     'epic-1-day-team-building/index.html',
     'thrilling-2-day-team-building-retreat/index.html',
-    'resorts-recommended-pinewood-resort/index.html'
+    'resorts-recommended-pinewood-resort/index.html',
+    'indoor-team-building-activities/index.html',
+    'outdoor-team-building/index.html'
 ];
 
 const files = [

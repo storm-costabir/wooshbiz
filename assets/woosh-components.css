@@ -394,6 +394,37 @@
 .voice small { display: block; color: var(--ink-2); font-size: .85rem; margin-top: 2px; }
 .voice-brand { height: 26px; width: auto; object-fit: contain; margin-top: 12px; opacity: .65; }
 
+/* Cards with data-yt-open play their video in the on-page dialog
+   (woosh-ui.js) instead of sending the reader off to YouTube. The orange play
+   button matches the "See us in action" cards, the length badge says how
+   short the ask is, and the footer line says what a tap does. */
+.voice:focus-visible { outline: 3px solid var(--orange); outline-offset: 3px; }
+.voice[data-yt-open] .voice-play {
+    width: 52px; height: 52px;
+    background: rgba(244, 121, 32, .94); color: #fff; font-size: 1rem;
+    box-shadow: 0 6px 18px rgba(10, 3, 8, .28);
+    transition: transform var(--t) var(--ease);
+}
+.voice[data-yt-open]:hover .voice-play,
+.voice[data-yt-open].w3d-focus .voice-play { transform: scale(1.1); }
+.voice-time {
+    position: absolute; right: 8px; bottom: 8px;
+    padding: 2px 7px; border-radius: 6px;
+    background: rgba(10, 3, 8, .78); color: #fff;
+    font-size: .72rem; font-weight: 600; font-variant-numeric: tabular-nums;
+}
+.voice-foot {
+    display: flex; align-items: center; justify-content: space-between;
+    flex-wrap: wrap; gap: 8px 16px; margin-top: 12px;
+}
+.voice-foot .voice-brand { margin-top: 0; height: 30px; opacity: .85; }
+.voice-cta {
+    font-size: .84rem; font-weight: 600; color: var(--plum); white-space: nowrap;
+    transition: transform var(--t);
+}
+.voice:hover .voice-cta,
+.voice:focus-visible .voice-cta { transform: translateX(4px); }
+
 /* --------------------------------------------------------------------------
    Logo strips
    -------------------------------------------------------------------------- */

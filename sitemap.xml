@@ -6,7 +6,7 @@
     published post in wooshbiz_blogs.
 
     Deliberately absent: admin.html, tier-test.html, virtual.html,
-    outbound.html, 404.html, and every legacy redirect stub under /post/,
+    high-octane.html, outdoors.html, outbound.html, 404.html, and every legacy redirect stub under /post/,
     /timeline-blogs/ and /timeline-blog-posts/. The stubs must stay
     crawlable so they can pass their ranking on, but advertising a
     redirect in the sitemap invites Google to index the stub itself.
@@ -24,13 +24,13 @@
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://wooshbiz.com/high-octane.html</loc>
-    <lastmod>2026-08-24</lastmod>
+    <loc>https://wooshbiz.com/indoor-team-building-activities/</loc>
+    <lastmod>2026-11-04</lastmod>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://wooshbiz.com/outdoors.html</loc>
-    <lastmod>2026-08-24</lastmod>
+    <loc>https://wooshbiz.com/outdoor-team-building/</loc>
+    <lastmod>2026-11-04</lastmod>
     <priority>0.9</priority>
   </url>
   <url>

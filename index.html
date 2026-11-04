@@ -353,37 +353,7 @@
     .durations .panel-note { font-size: .84rem; color: var(--ink-2); }
     .durations .panel.link-panel .go { margin-top: auto; padding-top: 14px; }
 
-    /* ---------- Client voices ---------- */
-    /* Each card opens its video in the on-page dialog (woosh-ui.js,
-       data-yt-open) instead of sending the reader off to YouTube. The play
-       button matches the "See us in action" cards above, the length badge
-       says how short the ask is, and the footer line says what a tap does. */
-    .voice:focus-visible { outline: 3px solid var(--orange); outline-offset: 3px; }
-    .voice .voice-play {
-        width: 52px; height: 52px;
-        background: rgba(244, 121, 32, .94); color: #fff; font-size: 1rem;
-        box-shadow: 0 6px 18px rgba(10, 3, 8, .28);
-        transition: transform var(--t) var(--ease);
-    }
-    .voice:hover .voice-play,
-    .voice.w3d-focus .voice-play { transform: scale(1.1); }
-    .voice-time {
-        position: absolute; right: 8px; bottom: 8px;
-        padding: 2px 7px; border-radius: 6px;
-        background: rgba(10, 3, 8, .78); color: #fff;
-        font-size: .72rem; font-weight: 600; font-variant-numeric: tabular-nums;
-    }
-    .voice-foot {
-        display: flex; align-items: center; justify-content: space-between;
-        flex-wrap: wrap; gap: 8px 16px; margin-top: 12px;
-    }
-    .voice-foot .voice-brand { margin-top: 0; height: 30px; opacity: .85; }
-    .voice-cta {
-        font-size: .84rem; font-weight: 600; color: var(--plum); white-space: nowrap;
-        transition: transform var(--t);
-    }
-    .voice:hover .voice-cta,
-    .voice:focus-visible .voice-cta { transform: translateX(4px); }
+    /* Client voice cards are styled in woosh-components.css. */
 
     /* ---------- See us in action ---------- */
     /* Five videos in two columns leave one alone in the last row; centre it
@@ -575,8 +545,8 @@
         </button>
         <ul class="nav-links" id="navLinks">
             <li><a href="/" class="active" aria-current="page">Home</a></li>
-            <li><a href="high-octane.html">In-Office</a></li>
-            <li><a href="outdoors.html">Outdoors</a></li>
+            <li><a href="/indoor-team-building-activities/">In-Office</a></li>
+            <li><a href="/outdoor-team-building/">Outdoors</a></li>
             <li class="dropdown">
                 <a href="#" class="dropdown-toggle">More</a>
                 <ul class="dropdown-menu">
@@ -640,7 +610,7 @@
             whichever suits your calendar.</p>
         </div>
         <div class="reel two choice">
-            <a class="frame stack" data-w3d="card" href="high-octane.html">
+            <a class="frame stack" data-w3d="card" href="/indoor-team-building-activities/">
                 <img src="images/wix/wix-591876af.jpg" alt="Indoor team building — a team celebrating inside an office hall" width="1600" height="900" loading="lazy">
                 <div class="frame-body">
                     <p class="choice-kicker">We come to you</p>
@@ -650,7 +620,7 @@
                     <span class="go">See in-office programmes &rarr;</span>
                 </div>
             </a>
-            <a class="frame stack" data-w3d="card" href="outdoors.html">
+            <a class="frame stack" data-w3d="card" href="/outdoor-team-building/">
                 <img src="images/wix/wix-6102aff5.jpg" alt="Outdoor team building — a team playing a lawn game at an open-air offsite" width="1600" height="900" loading="lazy">
                 <div class="frame-body">
                     <p class="choice-kicker">We take you out</p>
@@ -855,8 +825,8 @@
             </div>
             <div>
                 <h3>Programmes</h3>
-                <a href="high-octane.html">In-Office</a>
-                <a href="outdoors.html">Outdoors</a>
+                <a href="/indoor-team-building-activities/">In-Office</a>
+                <a href="/outdoor-team-building/">Outdoors</a>
                 <a href="resorts.html">Resorts Recommended</a>
             </div>
             <div>

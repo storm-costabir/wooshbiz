@@ -26,7 +26,7 @@
       shared fields have to agree across all five, and nothing may be a bare
       reference.
 
-   2. The FAQPage blocks on high-octane.html and outdoors.html.
+   2. The FAQPage blocks on the In-Office and Outdoors pages.
 
       Those are hand-maintained, unlike the FAQPage that build-post.js emits
       for listicles. Google grants FAQ rich results only while the schema and
@@ -71,8 +71,8 @@ const REQUIRED_ENTITY_PAGES = [
     'index.html',
     'about.html',
     'contact.html',
-    'high-octane.html',
-    'outdoors.html'
+    'indoor-team-building-activities/index.html',
+    'outdoor-team-building/index.html'
 ];
 
 /* These two carry hand-maintained FAQPage blocks today. If one stops being
@@ -83,7 +83,7 @@ const REQUIRED_ENTITY_PAGES = [
    "did the pages I was told about keep their schema" when the question is
    "does every page with visible FAQs have schema". Add an FAQ to a new page
    and this notices on its own rather than staying quietly green. */
-const FAQ_PAGES_FLOOR = ['high-octane.html', 'outdoors.html'];
+const FAQ_PAGES_FLOOR = ['indoor-team-building-activities/index.html', 'outdoor-team-building/index.html'];
 
 const problems = [];
 const note = (file, msg) => problems.push(`${file}: ${msg}`);

@@ -207,6 +207,22 @@ function recommendationCards(picked) {
 
 /* ---------- body rewriting ---------- */
 
+/* Site pages that moved after posts linking to them were written. The bodies
+   in wooshbiz_blogs keep the old hrefs; the built page points straight at the
+   new address so readers skip the redirect stub. Matches relative, root and
+   absolute forms, with or without a #fragment. Add a line when a page moves. */
+const MOVED_PAGES = {
+    'high-octane.html': '/indoor-team-building-activities/',
+    'outdoors.html': '/outdoor-team-building/'
+};
+
+function rewriteMovedLinks(body) {
+    return body.replace(/href="(?:https?:\/\/(?:www\.)?wooshbiz\.com)?\/?([a-z0-9-]+\.html)(#[^"]*)?"/gi,
+        (full, file, hash) => MOVED_PAGES[file.toLowerCase()]
+            ? `href="${MOVED_PAGES[file.toLowerCase()]}${hash || ''}"`
+            : full);
+}
+
 /* Heading ids have to exist in the served HTML, not be assigned by buildToc()
    after load, or a shared #anchor link lands at the top of the page for anyone
    whose browser follows the fragment before the script runs. Same id scheme as
@@ -351,7 +367,7 @@ function buildPage(template, post, slug, allPosts) {
     const canonical = `${SITE}/${slug}/`;
     const cover = post.cover_image ? '/' + String(post.cover_image).replace(/^\/+/, '') : '';
 
-    let body = enhanceBodyImages(addHeadingIds(bodyRaw));
+    let body = enhanceBodyImages(addHeadingIds(rewriteMovedLinks(bodyRaw)));
     const heads = headings(body);
 
     /* The ?id= forwarding table is for the shell alone. A baked page is the
