@@ -42,6 +42,8 @@ The flow:
 4. Brief's title tag → `tools/seo-titles.json` keyed by post id (the H1 keeps the headline).
 5. `node tools/build-post.js` (all posts — related-post cards on older posts change), then add the
    page to `sitemap.xml` and bump `lastmod` on the posts whose cards changed.
+   A full run also rewrites the `?id=` → clean-URL table at the top of `blog-post.html`, which
+   is what forwards old `blog-post.html?id=N` links instantly. Commit that file with the post.
 6. `node tools/build-post.js --check`, `node tools/check-schema.js`, `node tools/sync-partials.js --check`.
    A DRIFT that `git diff --ignore-cr-at-eol` shows as empty is line endings only; restore it.
 7. Commit, push, then confirm the page, its images and the sitemap entry on wooshbiz.com.

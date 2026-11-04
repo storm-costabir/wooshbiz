@@ -11,13 +11,13 @@
     </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Corporate Team Building Company in India | Woosh Biz</title>
-    <meta name="description" content="Woosh Biz designs high-energy corporate team building programs — in-office, outdoor and virtual. Fun-first experiences that build real teams across India.">
+    <title>Corporate Team Building Activities in Mumbai | Woosh Biz</title>
+    <meta name="description" content="Fun, high-energy team building for companies in Mumbai, Pune and across India. 30+ indoor and outdoor activities, 150+ happy teams. Get a quote in 30 mins.">
     <link rel="canonical" href="https://wooshbiz.com/">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Woosh Biz">
-    <meta property="og:title" content="Corporate Team Building Company in India | Woosh Biz">
-    <meta property="og:description" content="High-energy corporate team building programs — in-office, outdoor and virtual. Fun-first experiences that build real teams across India.">
+    <meta property="og:title" content="Corporate Team Building Activities in Mumbai | Woosh Biz">
+    <meta property="og:description" content="Fun, high-energy team building for companies in Mumbai, Pune and across India. 30+ indoor and outdoor activities, 150+ happy teams. Get a quote in 30 mins.">
     <meta property="og:url" content="https://wooshbiz.com/">
     <meta property="og:image" content="https://wooshbiz.com/images/og-default.png">
     <meta name="twitter:card" content="summary_large_image">
@@ -429,12 +429,14 @@
          So: change an identifying field and it needs changing in all five.
          Change the rating or the contact point and it only lives here.
 
-         LocalBusiness rather than Organization because it is the more specific
-         type and inherits everything Organization has. -->
+         Typed as both Organization and LocalBusiness. LocalBusiness alone
+         already inherits everything Organization has; naming both is for the
+         tools that match on the literal type. The address is the Vashi office
+         (office.html), and contact.html carries the same one. -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "LocalBusiness",
+      "@type": ["Organization", "LocalBusiness"],
       "@id": "https://wooshbiz.com/#organization",
       "name": "Woosh Biz",
       "legalName": "Woosh Biz by HTI India Pvt Ltd",
@@ -448,8 +450,10 @@
       "email": "team@hti-india.com",
       "address": {
         "@type": "PostalAddress",
-        "addressLocality": "Mumbai",
+        "streetAddress": "A433 Vashi Plaza, Sector 17, Sion Panvel Highway, Vashi",
+        "addressLocality": "Navi Mumbai",
         "addressRegion": "Maharashtra",
+        "postalCode": "400703",
         "addressCountry": "IN"
       },
       "areaServed": { "@type": "Country", "name": "India" },
@@ -481,20 +485,96 @@
       }
     }
     </script>
+
+    <!-- One VideoObject per "See us in action" video. Names, dates and
+         durations are YouTube's own; keep them in step if a video is swapped.
+         The descriptions are short summaries of the YouTube ones. -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "VideoObject",
+          "name": "The ultimate team building challenge: can your team do it?",
+          "description": "Team Parekh Integrated Services takes on a series of challenging and hilarious Woosh Biz team building exercises, built around the theme \"MAD about Sustainability\".",
+          "thumbnailUrl": [
+            "https://i.ytimg.com/vi/5CMOe_3UPhk/maxresdefault.jpg",
+            "https://i.ytimg.com/vi/5CMOe_3UPhk/hqdefault.jpg"
+          ],
+          "uploadDate": "2023-05-04T04:17:54-07:00",
+          "duration": "PT2M57S",
+          "url": "https://www.youtube.com/watch?v=5CMOe_3UPhk",
+          "embedUrl": "https://www.youtube.com/embed/5CMOe_3UPhk"
+        },
+        {
+          "@type": "VideoObject",
+          "name": "The team that plays together fights together stays together",
+          "description": "Team Idemitsu competes, plays games and dances at an all-day Woosh Biz team building and bonding event at Visava Amusement Park Resort in Panvel, Maharashtra.",
+          "thumbnailUrl": [
+            "https://i.ytimg.com/vi/aRa3-lk0ss0/maxresdefault.jpg",
+            "https://i.ytimg.com/vi/aRa3-lk0ss0/hqdefault.jpg"
+          ],
+          "uploadDate": "2023-01-09T03:05:59-08:00",
+          "duration": "PT2M1S",
+          "url": "https://www.youtube.com/watch?v=aRa3-lk0ss0",
+          "embedUrl": "https://www.youtube.com/embed/aRa3-lk0ss0"
+        },
+        {
+          "@type": "VideoObject",
+          "name": "Offsite Team Building and Bounding Program for Workers, Supervisors & Managers of Swastik Tins.",
+          "description": "An offsite Woosh Biz team building and bonding programme for the workers, supervisors and managers of Swastik Tins.",
+          "thumbnailUrl": [
+            "https://i.ytimg.com/vi/d7hAV96jBg0/maxresdefault.jpg",
+            "https://i.ytimg.com/vi/d7hAV96jBg0/hqdefault.jpg"
+          ],
+          "uploadDate": "2022-12-12T02:32:22-08:00",
+          "duration": "PT1M52S",
+          "url": "https://www.youtube.com/watch?v=d7hAV96jBg0",
+          "embedUrl": "https://www.youtube.com/embed/d7hAV96jBg0"
+        },
+        {
+          "@type": "VideoObject",
+          "name": "Corporate Team Building Program for Arete Services.",
+          "description": "\"Yeh Diwali Arete Wali!\" - the HR team at Arete Services brought in Woosh Biz for a day of team building and bonding games.",
+          "thumbnailUrl": [
+            "https://i.ytimg.com/vi/KPirBZoTSPA/maxresdefault.jpg",
+            "https://i.ytimg.com/vi/KPirBZoTSPA/hqdefault.jpg"
+          ],
+          "uploadDate": "2022-11-02T03:05:58-07:00",
+          "duration": "PT2M7S",
+          "url": "https://www.youtube.com/watch?v=KPirBZoTSPA",
+          "embedUrl": "https://www.youtube.com/embed/KPirBZoTSPA"
+        },
+        {
+          "@type": "VideoObject",
+          "name": "Team Building for the Club Jolie's Team!",
+          "description": "Dominic Costabir runs through a high-energy Woosh Biz team building and bonding day customised for Jolie's Club (Aditya Birla Group).",
+          "thumbnailUrl": [
+            "https://i.ytimg.com/vi/2cJditUwJCY/maxresdefault.jpg",
+            "https://i.ytimg.com/vi/2cJditUwJCY/hqdefault.jpg"
+          ],
+          "uploadDate": "2022-11-12T03:37:45-08:00",
+          "duration": "PT5M3S",
+          "url": "https://www.youtube.com/watch?v=2cJditUwJCY",
+          "embedUrl": "https://www.youtube.com/embed/2cJditUwJCY"
+        }
+      ]
+    }
+    </script>
 </head>
 <body>
 
 <!-- @partial:nav active="home" -->
 <nav class="navbar">
     <div class="nav-container">
-        <a href="index.html" class="nav-logo" aria-label="Woosh Biz — home">
+        <a href="/" class="nav-logo" aria-label="Woosh Biz — home">
             <img src="images/wix/wix-2f36ed41.png" alt="Woosh Biz" width="1182" height="466">
         </a>
         <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false" aria-controls="navLinks">
             <span></span><span></span><span></span>
         </button>
         <ul class="nav-links" id="navLinks">
-            <li><a href="index.html" class="active" aria-current="page">Home</a></li>
+            <li><a href="/" class="active" aria-current="page">Home</a></li>
             <li><a href="high-octane.html">In-Office</a></li>
             <li><a href="outdoors.html">Outdoors</a></li>
             <li class="dropdown">
