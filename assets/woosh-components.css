@@ -537,6 +537,46 @@
 .closing p { color: var(--dim); margin-bottom: 34px; position: relative; z-index: 2; }
 .closing .act { position: relative; z-index: 2; }
 
+/* Quick enquiry form — the short form in the closing section of the home,
+   In-Office and Outdoors pages. Behaviour lives in assets/woosh-enquiry.js.
+   Drawn as a lit card on the dark closing scene, like the contact page's. */
+.qf {
+    position: relative; z-index: 2; max-width: 620px; margin: 0 auto 30px;
+    text-align: left; background: #fff; color: var(--ink);
+    border-radius: var(--r); padding: clamp(22px, 3vw, 32px);
+    box-shadow: 0 30px 60px -30px rgba(0, 0, 0, .6);
+}
+.qf-grid { display: grid; gap: 16px; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+@media (max-width: 600px) { .qf-grid { grid-template-columns: 1fr; } }
+.qf-field label { display: block; font-size: .85rem; font-weight: 600; margin-bottom: 6px; color: var(--ink); }
+.qf-field label .opt { color: var(--ink-2); font-weight: 400; }
+.qf-field label .req { color: var(--plum); }
+.qf-field input, .qf-field select {
+    width: 100%; padding: 12px 14px; border-radius: var(--r-sm);
+    border: 1px solid var(--line-lit); background: #fff; color: var(--ink);
+    font-family: var(--body); font-size: .95rem;
+}
+.qf-field input:focus, .qf-field select:focus {
+    outline: none; border-color: var(--plum-l); box-shadow: 0 0 0 3px rgba(183, 58, 148, .16);
+}
+.qf-field input::placeholder { color: var(--ink-2); opacity: .7; }
+.qf-field.is-bad input { border-color: #c2334d; }
+.qf .qf-err { margin: 6px 0 0; font-size: .8rem; color: #c2334d; }
+.qf-hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+.qf-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 18px; margin-top: 20px; }
+.qf .qf-note { margin: 0; font-size: .8rem; color: var(--ink-2); flex: 1 1 200px; }
+.qf button[disabled] { opacity: .6; cursor: progress; box-shadow: none; }
+.qf .qf-status { margin: 16px 0 0; padding: 12px 14px; border-radius: var(--r-sm); font-size: .88rem;
+    background: rgba(194, 51, 77, .09); border: 1px solid rgba(194, 51, 77, .3); color: #8d1f33; }
+.qf .qf-status a { color: #8d1f33; font-weight: 600; text-decoration: underline; }
+.qf-done { text-align: center; padding: 8px 0; }
+.qf-done .qf-tick { width: 52px; height: 52px; margin: 0 auto 14px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    background: rgba(37, 211, 102, .14); color: #1a8f47; font-size: 1.5rem; }
+.qf-done h3 { font-family: var(--disp); font-size: 1.45rem; margin: 0 0 8px; color: var(--ink); }
+.qf .qf-done p { margin: 0; color: var(--ink-2); }
+.closing .qf-or { font-size: .88rem; margin-bottom: 18px; }
+
 /* --------------------------------------------------------------------------
    Forms
    -------------------------------------------------------------------------- */
