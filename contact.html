@@ -12,12 +12,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Woosh Biz | Team Building Programs in India</title>
-    <meta name="description" content="Let's chat. Call, WhatsApp or mail Woosh Biz by HTI for in-office, outdoor and virtual team building programs. Our support team gets back within 24 hours.">
+    <meta name="description" content="Free consultation and a written quote within 24 hours for in-office and outdoor team building in India. Send a brief, call or WhatsApp Woosh Biz by HTI.">
     <link rel="canonical" href="https://wooshbiz.com/contact.html">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Woosh Biz">
     <meta property="og:title" content="Contact Woosh Biz | Team Building Programs in India">
-    <meta property="og:description" content="Let's chat. Call, WhatsApp or mail Woosh Biz by HTI for in-office, outdoor and virtual team building programs. Our support team gets back within 24 hours.">
+    <meta property="og:description" content="Free consultation and a written quote within 24 hours for in-office and outdoor team building in India. Send a brief, call or WhatsApp Woosh Biz by HTI.">
     <meta property="og:url" content="https://wooshbiz.com/contact.html">
     <meta property="og:image" content="https://wooshbiz.com/images/og-default.png">
     <meta name="twitter:card" content="summary_large_image">
@@ -83,6 +83,34 @@
         }
         .enq-done h3 { font-family: var(--disp); font-size: clamp(1.35rem, 2.4vw, 1.85rem); margin: 0 0 10px; }
         .enq-done .act { margin-top: 22px; }
+
+        /* ---- Hero with the form in it -------------------------------------
+           The form used to sit five screens down, under the contact cards and
+           the office address; visitors stay 4-10 seconds and never reached it.
+           It now shares the hero with a short pitch. Areas let a phone show
+           pitch -> form -> proof, so the form is the second thing seen rather
+           than coming after the checklist. ---------------------------------- */
+        .contact-hero {
+            grid-template-columns: minmax(0, 1fr) minmax(0, 540px);
+            grid-template-areas: "pitch form" "proof form";
+            align-items: start; row-gap: 26px;
+        }
+        .contact-hero .ch-pitch { grid-area: pitch; }
+        .contact-hero .ch-proof { grid-area: proof; }
+        .contact-hero .ch-form  { grid-area: form; }
+        .contact-hero .ticks li { font-size: .93rem; }
+        .ch-rating { margin: 16px 0 0; font-size: .9rem; }
+        @media (max-width: 968px) {
+            .contact-hero { grid-template-columns: 1fr; grid-template-areas: "pitch" "form" "proof"; }
+        }
+        /* The card sits on the dark hero but is drawn as a lit surface. The
+           wrapper supplies .lit for the descendant rules and paints nothing. */
+        .enq-shell { background: none; }
+        .enq-title { font-family: var(--disp); font-size: clamp(1.4rem, 2.2vw, 1.75rem); margin: 0 0 6px; }
+        .enq-sub { margin: 0 0 22px; font-size: .92rem; }
+        .enq-pair-note { grid-column: 1 / -1; margin: -6px 0 -8px; font-size: .84rem; }
+        .enq-alt { margin: 22px 0 0; padding-top: 16px; border-top: 1px solid var(--line-lit); font-size: .88rem; }
+        .enq-alt a { color: var(--plum); font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
     </style>
     <script defer src="assets/woosh-3d.js"></script>
     <script defer src="assets/woosh-ui.js"></script>
@@ -147,54 +175,113 @@
 
 <header class="scene-hero short">
     <span class="glow a"></span><span class="glow b"></span>
-    <div class="wrap hero-inner solo">
-        <p class="crumbs"><a href="/">Home</a><span>/</span>Contact</p>
-        <p class="eyebrow" data-w3d="rise" data-w3d-fade>We reply within 24 hours</p>
-        <h1 class="display" data-w3d="rise" data-w3d-fade>Talk to a <em>real human</em><br>about your next event.</h1>
-        <p class="lede dim" data-w3d="rise" data-w3d-fade>
-            In-office, outdoor or virtual — tell us what you're planning and we'll take it from there.
-            No call centre, no form that goes nowhere.
-        </p>
-        <div class="hero-acts" data-w3d="rise" data-w3d-fade>
-            <a class="act" data-magnetic href="tel:+919210804078"><span>Call +91 92108 04078</span></a>
-            <a class="act ghost" href="https://wa.me/919210804078" target="_blank" rel="noopener">
-                <span class="wa"><svg viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.67-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.076 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413"/></svg></span>
-                <span>Chat on WhatsApp</span>
-            </a>
+    <div class="wrap hero-inner contact-hero">
+        <div class="ch-pitch">
+            <p class="crumbs"><a href="/">Home</a><span>/</span>Contact</p>
+            <p class="eyebrow" data-w3d="rise" data-w3d-fade>Free consultation &middot; reply within 24 hours</p>
+            <h1 class="display" data-w3d="rise" data-w3d-fade>Tell us about your <em>next team event</em>.</h1>
+            <p class="lede dim" data-w3d="rise" data-w3d-fade>
+                In-office or outdoor, one team or the whole company. Send a few details and someone
+                who has actually run these programmes will come back with ideas and a written quote.
+            </p>
+        </div>
+
+        <div class="ch-proof" data-w3d="rise" data-w3d-fade>
+            <ul class="ticks">
+                <li><span class="tick" aria-hidden="true">&#10003;</span> A 15-minute call with someone who has actually run the activity</li>
+                <li><span class="tick" aria-hidden="true">&#10003;</span> A shortlist of formats that fit your group size, venue and budget</li>
+                <li><span class="tick" aria-hidden="true">&#10003;</span> Resort and venue recommendations if you need an offsite</li>
+                <li><span class="tick" aria-hidden="true">&#10003;</span> A written quote within 24 hours &mdash; free, no obligation</li>
+            </ul>
+            <p class="ch-rating dim">&#11088; <strong>4.5</strong> average rating out of 5, based on 150 ratings</p>
+        </div>
+
+        <!-- ==================== ENQUIRY FORM ==================== -->
+        <div class="ch-form lit enq-shell" id="enquiry">
+            <div class="panel" id="enqPanel">
+                <h2 class="enq-title">Get a free quote</h2>
+                <p class="enq-sub dim">Takes two minutes. We reply within 24 hours, usually sooner.</p>
+                <!-- No action/method on purpose. A native submit would reload the
+                     page and throw the visitor out of the scroll position; the
+                     handler below posts to Supabase and never lets that happen. -->
+                <form id="enqForm" novalidate>
+                    <div class="enq-grid">
+                        <div class="enq-field" data-for="name">
+                            <label for="enqName">Your name <span class="enq-req" aria-hidden="true">*</span></label>
+                            <input id="enqName" name="name" type="text" autocomplete="name" maxlength="120" required aria-describedby="enqNameErr" placeholder="Priya Sharma">
+                            <p class="enq-err" id="enqNameErr" hidden></p>
+                        </div>
+                        <div class="enq-field" data-for="company">
+                            <label for="enqCompany">Company <span class="enq-opt">(optional)</span></label>
+                            <input id="enqCompany" name="company" type="text" autocomplete="organization" maxlength="140" placeholder="Acme Pvt Ltd">
+                        </div>
+                        <p class="enq-pair-note dim">Phone or email &mdash; one is enough, whichever you'd like us to reply on.</p>
+                        <div class="enq-field" data-for="phone">
+                            <label for="enqPhone">Phone</label>
+                            <input id="enqPhone" name="phone" type="tel" autocomplete="tel" maxlength="30" aria-describedby="enqPhoneErr" placeholder="+91 98765 43210">
+                            <p class="enq-err" id="enqPhoneErr" hidden></p>
+                        </div>
+                        <div class="enq-field" data-for="email">
+                            <label for="enqEmail">Email</label>
+                            <input id="enqEmail" name="email" type="email" autocomplete="email" maxlength="180" aria-describedby="enqEmailErr" placeholder="priya@company.com">
+                            <p class="enq-err" id="enqEmailErr" hidden></p>
+                        </div>
+                        <div class="enq-field" data-for="team_size">
+                            <label for="enqTeamSize">Team size <span class="enq-opt">(optional)</span></label>
+                            <select id="enqTeamSize" name="team_size">
+                                <option value="">Select a range</option>
+                                <option value="1-10">1-10</option>
+                                <option value="11-25">11-25</option>
+                                <option value="26-50">26-50</option>
+                                <option value="51-100">51-100</option>
+                                <option value="100+">100+</option>
+                            </select>
+                        </div>
+                        <div class="enq-field" data-for="program_interest">
+                            <label for="enqProgram">Programme <span class="enq-opt">(optional)</span></label>
+                            <select id="enqProgram" name="program_interest">
+                                <option value="">Select a programme</option>
+                                <option value="In-Office">In-Office</option>
+                                <option value="Outdoors">Outdoors</option>
+                                <option value="Offsite / Retreat">Offsite / Retreat</option>
+                                <option value="Not sure yet">Not sure yet</option>
+                            </select>
+                        </div>
+                        <div class="enq-field full" data-for="message">
+                            <label for="enqMessage">Anything else? <span class="enq-opt">(optional)</span></label>
+                            <textarea id="enqMessage" name="message" maxlength="2000" placeholder="Dates you have in mind, venue, budget, what you want the day to achieve."></textarea>
+                        </div>
+                    </div>
+
+                    <div class="enq-hp" aria-hidden="true">
+                        <label for="enqWebsite">Leave this field empty</label>
+                        <input id="enqWebsite" name="website" type="text" tabindex="-1" autocomplete="off">
+                    </div>
+
+                    <div class="enq-actions">
+                        <button class="act" type="submit" id="enqSubmit" data-magnetic><span>Get my free quote</span></button>
+                        <p class="enq-note dim">We use this to reply to you and nothing else. No lists, no forwarding.</p>
+                    </div>
+                    <p class="enq-status" id="enqStatus" role="status" aria-live="polite" hidden></p>
+                </form>
+                <p class="enq-alt dim">
+                    Rather talk? <a href="tel:+919210804078">Call +91 92108 04078</a>
+                    or <a href="https://wa.me/919210804078" target="_blank" rel="noopener">chat on WhatsApp</a>.
+                </p>
+            </div>
         </div>
     </div>
 </header>
 
-<section class="strip">
-    <p class="strip-label" style="margin:0;text-transform:none;letter-spacing:0;font-size:.92rem;">
-        For any support, please mail <a href="mailto:team@hti-india.com" style="color:var(--gold);text-decoration:underline;text-underline-offset:3px;">team@hti-india.com</a>
-        &mdash; our support team will get back to you within 24 hours.
-    </p>
-</section>
-
-<!-- ==================== WAYS IN ==================== -->
-<section class="scene lit">
+<!-- ==================== OTHER WAYS IN ==================== -->
+<section class="scene lit tight">
     <div class="wrap">
         <div class="scene-head">
-            <p class="eyebrow" data-w3d="rise" data-w3d-fade>Four ways in</p>
-            <h2 class="display" data-w3d="rise" data-w3d-fade>Pick whichever is quickest for you.</h2>
+            <p class="eyebrow" data-w3d="rise" data-w3d-fade>Rather not fill a form?</p>
+            <h2 class="display" data-w3d="rise" data-w3d-fade>Other ways to reach us.</h2>
         </div>
 
         <div class="panels">
-            <div class="panel" data-w3d="card">
-                <div class="panel-icon">
-                    <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
-                </div>
-                <h3>Email</h3>
-                <ul class="kv">
-                    <li><span class="k">Address</span> <a href="mailto:team@hti-india.com">team@hti-india.com</a></li>
-                    <li><span class="k">Reply</span> <span>Within 24 hours</span></li>
-                </ul>
-                <div class="mini-acts">
-                    <a class="mini" href="mailto:team@hti-india.com?subject=Team%20Building%20Enquiry">Send an email</a>
-                </div>
-            </div>
-
             <div class="panel" data-w3d="card">
                 <div class="panel-icon">
                     <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a12 12 0 0 0 5 5L15 13l5 2v4a1 1 0 0 1-1 1A16 16 0 0 1 4 5a1 1 0 0 1 1-1z"/></svg>
@@ -212,6 +299,20 @@
 
             <div class="panel" data-w3d="card">
                 <div class="panel-icon">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+                </div>
+                <h3>Email</h3>
+                <ul class="kv">
+                    <li><span class="k">Address</span> <a href="mailto:team@hti-india.com">team@hti-india.com</a></li>
+                    <li><span class="k">Reply</span> <span>Within 24 hours</span></li>
+                </ul>
+                <div class="mini-acts">
+                    <a class="mini" href="mailto:team@hti-india.com?subject=Team%20Building%20Enquiry">Send an email</a>
+                </div>
+            </div>
+
+            <div class="panel" data-w3d="card">
+                <div class="panel-icon">
                     <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18 15 15 0 0 1 0-18z"/></svg>
                 </div>
                 <h3>Social</h3>
@@ -220,24 +321,6 @@
                     <a class="mini" href="https://www.instagram.com/wooshbiz/" target="_blank" rel="noopener">Instagram</a>
                     <a class="mini" href="https://www.facebook.com/people/Woosh-Biz-by-HTI/100083456102229/" target="_blank" rel="noopener">Facebook</a>
                     <a class="mini" href="https://www.youtube.com/channel/UC9BdT9tzf4841P1B-R7P-Qg" target="_blank" rel="noopener">YouTube</a>
-                </div>
-            </div>
-
-            <!-- Points at the native form further down this page. It used to be a
-                 Google Form in a new tab; the form now lives here and writes
-                 straight to wooshbiz_leads, so leads stop splitting across two
-                 systems. Same-page jump, hence no target/rel. -->
-            <div class="panel" data-w3d="card">
-                <div class="panel-icon">
-                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3h14v18H5z"/><path d="M9 8h6M9 12h6M9 16h4"/></svg>
-                </div>
-                <h3>Contact form</h3>
-                <ul class="kv">
-                    <li><span class="k">Time</span> <span>Under 2 minutes</span></li>
-                    <li><span class="k">Best for</span> <span>Telling us what you need</span></li>
-                </ul>
-                <div class="mini-acts">
-                    <a class="mini" href="#enquiry">Fill the form</a>
                 </div>
             </div>
         </div>
@@ -269,107 +352,6 @@
                     <span>Bengaluru</span><span>Delhi NCR</span><span>Goa</span><span>Pan-India</span>
                 </div>
             </div>
-        </div>
-    </div>
-</section>
-
-
-<!-- ==================== ENQUIRY FORM ==================== -->
-<section class="scene lit" id="enquiry">
-    <div class="wrap-narrow">
-        <div class="scene-head">
-            <p class="eyebrow" data-w3d="rise" data-w3d-fade>Send a brief</p>
-            <h2 class="display" data-w3d="rise" data-w3d-fade>Or tell us about it <em>here</em>.</h2>
-            <p class="dim" data-w3d="rise" data-w3d-fade>Two minutes, and we reply within 24 hours. Prefer not to type? WhatsApp is faster.</p>
-        </div>
-
-        <div class="panel" data-w3d="card" id="enqPanel">
-            <!-- No action/method on purpose. A native submit would reload the
-                 page and throw the visitor out of the scroll position; the
-                 handler below posts to Supabase and never lets that happen. -->
-            <form id="enqForm" novalidate>
-                <div class="enq-grid">
-                    <div class="enq-field" data-for="name">
-                        <label for="enqName">Your name <span class="enq-req" aria-hidden="true">*</span></label>
-                        <input id="enqName" name="name" type="text" autocomplete="name" maxlength="120" required aria-describedby="enqNameErr" placeholder="Priya Sharma">
-                        <p class="enq-err" id="enqNameErr" hidden></p>
-                    </div>
-                    <div class="enq-field" data-for="email">
-                        <label for="enqEmail">Email <span class="enq-req" aria-hidden="true">*</span></label>
-                        <input id="enqEmail" name="email" type="email" autocomplete="email" maxlength="180" required aria-describedby="enqEmailErr" placeholder="priya@company.com">
-                        <p class="enq-err" id="enqEmailErr" hidden></p>
-                    </div>
-                    <div class="enq-field" data-for="phone">
-                        <label for="enqPhone">Phone <span class="enq-req" aria-hidden="true">*</span></label>
-                        <input id="enqPhone" name="phone" type="tel" autocomplete="tel" maxlength="30" required aria-describedby="enqPhoneErr" placeholder="+91 98765 43210">
-                        <p class="enq-err" id="enqPhoneErr" hidden></p>
-                    </div>
-                    <div class="enq-field" data-for="company">
-                        <label for="enqCompany">Company <span class="enq-opt">(optional)</span></label>
-                        <input id="enqCompany" name="company" type="text" autocomplete="organization" maxlength="140" placeholder="Acme Pvt Ltd">
-                    </div>
-                    <div class="enq-field" data-for="team_size">
-                        <label for="enqTeamSize">Team size <span class="enq-opt">(optional)</span></label>
-                        <select id="enqTeamSize" name="team_size">
-                            <option value="">Select a range</option>
-                            <option value="1-10">1-10</option>
-                            <option value="11-25">11-25</option>
-                            <option value="26-50">26-50</option>
-                            <option value="51-100">51-100</option>
-                            <option value="100+">100+</option>
-                        </select>
-                    </div>
-                    <div class="enq-field" data-for="program_interest">
-                        <label for="enqProgram">Programme of interest <span class="enq-opt">(optional)</span></label>
-                        <select id="enqProgram" name="program_interest">
-                            <option value="">Select a programme</option>
-                            <option value="In-Office">In-Office</option>
-                            <option value="Outdoors">Outdoors</option>
-                            <option value="Offsite / Retreat">Offsite / Retreat</option>
-                            <option value="Not sure yet">Not sure yet</option>
-                        </select>
-                    </div>
-                    <div class="enq-field full" data-for="message">
-                        <label for="enqMessage">Anything else? <span class="enq-opt">(optional)</span></label>
-                        <textarea id="enqMessage" name="message" maxlength="2000" placeholder="Dates you have in mind, venue, budget, what you want the day to achieve."></textarea>
-                    </div>
-                </div>
-
-                <div class="enq-hp" aria-hidden="true">
-                    <label for="enqWebsite">Leave this field empty</label>
-                    <input id="enqWebsite" name="website" type="text" tabindex="-1" autocomplete="off">
-                </div>
-
-                <div class="enq-actions">
-                    <button class="act" type="submit" id="enqSubmit" data-magnetic><span>Send enquiry</span></button>
-                    <p class="enq-note dim">We use this to reply to you and nothing else. No lists, no forwarding.</p>
-                </div>
-                <p class="enq-status" id="enqStatus" role="status" aria-live="polite" hidden></p>
-            </form>
-        </div>
-    </div>
-</section>
-
-<!-- ==================== LET'S CHAT ==================== -->
-<section class="scene lit tight" id="lets-chat">
-    <div class="wrap-narrow">
-        <div class="panel" data-w3d="card">
-            <p class="eyebrow">Free consultation</p>
-            <h2 class="display" style="font-size:clamp(1.6rem,2.8vw,2.3rem);margin:14px 0 12px;">Let's chat.</h2>
-            <p class="dim">Tell us a little about your team and we'll come prepared. Free, no markups, zero pressure.</p>
-            <ul class="ticks" style="margin-top:22px;">
-                <li><span class="tick" aria-hidden="true">&#10003;</span> A 15-minute call with someone who has actually run the activity</li>
-                <li><span class="tick" aria-hidden="true">&#10003;</span> A shortlist of formats that fit your group size, venue and budget</li>
-                <li><span class="tick" aria-hidden="true">&#10003;</span> Resort and venue recommendations if you need an offsite</li>
-                <li><span class="tick" aria-hidden="true">&#10003;</span> A written quote within 24 hours &mdash; no obligation</li>
-            </ul>
-            <p class="dim" style="margin-top:22px;padding-top:18px;border-top:1px solid var(--line-lit);">
-                &#11088; <strong>4.5</strong> average rating out of 5, based on 150 ratings
-            </p>
-            <a class="act" data-magnetic style="margin-top:22px;" href="https://wa.me/919210804078" target="_blank" rel="noopener">
-                <span class="wa"><svg viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.67-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.076 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413"/></svg></span>
-                <span>Get an instant quote on WhatsApp</span>
-            </a>
         </div>
     </div>
 </section>
@@ -448,17 +430,22 @@
     const status = document.getElementById('enqStatus');
 
     /* ---------- validation ---------- */
+    // Phone OR email: either one is enough to reply on, and asking for both
+    // was one more reason to give up. Whichever is filled must still be valid.
+    const val = id => document.getElementById(id).value.trim();
     const RULES = {
         enqName: v => v.trim() ? '' : 'Please tell us your name.',
-        enqEmail: v => {
-            if (!v.trim()) return 'We need an email address to send the quote to.';
-            return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v.trim())
-                ? '' : 'That email address does not look quite right.';
-        },
         enqPhone: v => {
-            if (!v.trim()) return 'A phone number lets us call you back.';
+            if (!v.trim()) {
+                return val('enqEmail') ? '' : 'Give us a phone number or an email so we can reply.';
+            }
             return v.replace(/\D/g, '').length >= 7
                 ? '' : 'That phone number looks too short.';
+        },
+        enqEmail: v => {
+            if (!v.trim()) return '';
+            return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v.trim())
+                ? '' : 'That email address does not look quite right.';
         }
     };
 
@@ -498,6 +485,13 @@
             if (input.closest('.enq-field').classList.contains('is-bad')) {
                 showError(id, RULES[id](input.value));
             }
+            // Typing an email answers the "phone or email" error on phone.
+            if (id === 'enqEmail') {
+                const phone = document.getElementById('enqPhone');
+                if (phone.closest('.enq-field').classList.contains('is-bad')) {
+                    showError('enqPhone', RULES.enqPhone(phone.value));
+                }
+            }
         });
     });
 
@@ -511,7 +505,7 @@
 
     function pending(on) {
         btn.disabled = on;
-        btn.querySelector('span').textContent = on ? 'Sending…' : 'Send enquiry';
+        btn.querySelector('span').textContent = on ? 'Sending…' : 'Get my free quote';
     }
 
     function succeed(name) {
@@ -561,10 +555,14 @@
         if (!validate()) return;
 
         const name = document.getElementById('enqName').value.trim();
+        // email and phone are always sent, as '' when left blank. Both were
+        // required until Nov 2026 and the table's constraints are not in this
+        // repo; an empty string still satisfies a NOT NULL that a missing key
+        // would break.
         const payload = {
             name: name,
-            email: document.getElementById('enqEmail').value.trim(),
-            phone: document.getElementById('enqPhone').value.trim(),
+            email: val('enqEmail'),
+            phone: val('enqPhone'),
             source_page: window.location.pathname
         };
         // Optional fields are omitted rather than sent empty, so the table
