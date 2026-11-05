@@ -21,7 +21,7 @@
     var LEADS_REST = SUPABASE_URL + '/rest/v1/wooshbiz_leads';
     var WHATSAPP = 'https://wa.me/919210804078';
     var MAILBOX = 'team@hti-india.com';
-    var BUTTON_TEXT = 'Get my free quote';
+    var BUTTON_TEXT = 'Book a free consultation';
 
     function escapeHtml(str) {
         return String(str || '').replace(/[&<>"']/g, function (c) {
