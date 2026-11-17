@@ -758,6 +758,7 @@
         'epic-1-day-team-building': '1-Day programme',
         'thrilling-2-day-team-building-retreat': '2-Day retreat',
         'resorts-recommended-pinewood-resort': 'Resort: Pinewood',
+        'resorts-recommended-nature-trails-durshet': 'Resort: Nature Trails',
         // Same labels the pages had as high-octane.html and outdoors.html,
         // so GA4 reports carry on in the same rows after the move.
         'indoor-team-building-activities': 'In-Office programmes',
