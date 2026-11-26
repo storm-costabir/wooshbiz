@@ -204,6 +204,14 @@
 .frame.stack .tags span { border-color: var(--line); }
 .lit .frame.stack .tags span { border-color: var(--line-lit); }
 
+/* Text-only frame (a running-order step with no photo). A plain .frame has
+   no height of its own without media, since its body is laid over the image;
+   this keeps the body in the flow and drops it below the number badge. */
+.frame.text .frame-body { padding-top: 76px; }
+.lit .frame.text .frame-no {
+    color: var(--plum); background: rgba(183, 58, 148, .1); border-color: rgba(183, 58, 148, .28);
+}
+
 .reel.two { grid-template-columns: 1fr 1fr; }
 @media (max-width: 760px) { .reel.two { grid-template-columns: 1fr; } }
 
